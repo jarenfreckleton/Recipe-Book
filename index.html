@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Our Recipe Book</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap">
+<style>
+:root{--bg:#f2f4f6;--surface:#fff;--fg:#161c22;--muted:#586571;--line:#d9dfe5;--accent:#2f5d8a;--honey:#8a5a1f;--accent-ink:#fff;
+ --display:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;--body:"DM Sans","Helvetica Neue",Arial,sans-serif;--mono:"DM Mono",ui-monospace,Menlo,monospace}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#12161a;--surface:#1b2127;--fg:#eaeef2;--muted:#9aa7b3;--line:#2c353d;--accent:#7fb0e0;--honey:#e0b060;--accent-ink:#12161a;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#12161a;--surface:#1b2127;--fg:#eaeef2;--muted:#9aa7b3;--line:#2c353d;--accent:#7fb0e0;--honey:#e0b060;--accent-ink:#12161a;color-scheme:dark}
+[data-r="bites"]{--accent:#b8261a;--honey:#d38b1f;--accent-ink:#fff}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) [data-r="bites"]{--accent:#ff6a56;--honey:#f0b34c;--accent-ink:#1a1110}}
+:root[data-theme="dark"] [data-r="bites"]{--accent:#ff6a56;--honey:#f0b34c;--accent-ink:#1a1110}
+[data-r="casserole"]{--accent:#a45400;--honey:#1f5d87;--accent-ink:#fff}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) [data-r="casserole"]{--accent:#f0a04b;--honey:#7cb8e8;--accent-ink:#14181d}}
+:root[data-theme="dark"] [data-r="casserole"]{--accent:#f0a04b;--honey:#7cb8e8;--accent-ink:#14181d}
+[data-r="zucchini-bread"]{--accent:#27688a;--honey:#9a4a17;--accent-ink:#fff}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) [data-r="zucchini-bread"]{--accent:#6bbbdc;--honey:#ec9f68;--accent-ink:#111a20}}
+:root[data-theme="dark"] [data-r="zucchini-bread"]{--accent:#6bbbdc;--honey:#ec9f68;--accent-ink:#111a20}
+[data-r="pizza-dough"]{--accent:#2e6b3b;--honey:#c0392a;--accent-ink:#fff}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) [data-r="pizza-dough"]{--accent:#7fd08c;--honey:#ff7c60;--accent-ink:#121a14}}
+:root[data-theme="dark"] [data-r="pizza-dough"]{--accent:#7fd08c;--honey:#ff7c60;--accent-ink:#121a14}
+[data-r="sheet-pan-chicken"]{--accent:#0d7765;--honey:#b98200;--accent-ink:#fff}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) [data-r="sheet-pan-chicken"]{--accent:#4fd1b5;--honey:#f2c94c;--accent-ink:#0d1a17}}
+:root[data-theme="dark"] [data-r="sheet-pan-chicken"]{--accent:#4fd1b5;--honey:#f2c94c;--accent-ink:#0d1a17}
+
+[hidden]{display:none!important}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.55;
+ padding-block:28px 56px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+main{max-width:680px;margin:0 auto;display:flex;flex-direction:column;gap:28px}
+a{color:inherit}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{font:500 12px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);padding:6px 9px;border-radius:4px}
+h1{font:700 clamp(2rem,8vw,3rem)/1.05 var(--display);margin:12px 0 0;text-wrap:balance;letter-spacing:-.01em}
+.by{margin:10px 0 0;color:var(--muted);font:400 .85rem var(--mono)}
+.photo{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:8px;border:1px solid var(--line)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.stat{background:var(--surface);padding:14px 12px;min-width:0}
+.stat b{display:block;font:500 1.15rem/1.2 var(--mono);font-variant-numeric:tabular-nums}
+.stat span{font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:.07em}
+h2{font:700 1.3rem/1.2 var(--display);margin:0 0 12px;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+h2 small{font:400 .8rem var(--mono);color:var(--muted)}
+ul.ing{list-style:none;margin:0;padding:0;background:var(--surface);border:1px solid var(--line);border-radius:8px}
+.ing li+li{border-top:1px solid var(--line)}
+.ing label{display:flex;gap:12px;align-items:baseline;padding:11px 14px;cursor:pointer}
+.ing input{accent-color:var(--accent);width:18px;height:18px;flex:none;align-self:center;margin:0}
+.ing .amt{font:500 .9rem var(--mono);color:var(--honey);min-width:5.6em;flex:none}
+.ing .name{min-width:0}
+.ing .opt{font:400 .75rem var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-left:6px}
+.ing input:checked~.amt,.ing input:checked~.name{text-decoration:line-through;color:var(--muted)}
+.ing input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+ol.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px;counter-reset:s}
+.steps li{counter-increment:s;display:grid;grid-template-columns:2rem 1fr;gap:12px;align-items:start}
+.steps li::before{content:counter(s);font:700 1rem/2rem var(--display);width:2rem;height:2rem;text-align:center;border-radius:50%;background:var(--accent);color:var(--accent-ink)}
+.steps p{margin:0;padding-top:3px;min-width:0}
+.steps .t{font:500 .85rem var(--mono);color:var(--honey)}
+.aisles{display:flex;flex-direction:column;gap:18px}
+.aisle h3{font:500 .78rem/1 var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+.scalebar{display:flex;align-items:center;gap:12px;margin:0 0 12px;flex-wrap:wrap}
+.scalebar .lbl{font:500 .78rem/1 var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.scale{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--surface)}
+.scale button{font:500 1rem/1 var(--mono);min-width:64px;min-height:44px;padding:0 16px;border:0;border-left:1px solid var(--line);background:transparent;color:var(--fg);cursor:pointer}
+.scale button:first-child{border-left:0}
+.scale button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.scale button:focus-visible{outline:2px solid var(--accent);outline-offset:-3px}
+h2 .sc{font:500 .8rem var(--mono);color:var(--honey)}
+.recipe{display:flex;flex-direction:column;gap:28px}
+.back{font:500 .85rem var(--mono);text-decoration:none;color:var(--accent);padding:8px 0;align-self:flex-start}
+.back:focus-visible,.card:focus-visible,#q:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.top .sub{margin:8px 0 0;font:400 .85rem var(--mono);color:var(--muted)}
+#q{width:100%;font:400 1rem var(--body);padding:13px 14px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--fg)}
+#list{display:flex;flex-direction:column;gap:28px}
+.cards{display:flex;flex-direction:column;gap:12px}
+.card{display:grid;grid-template-columns:104px 1fr;background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden;text-decoration:none;color:inherit}
+.card img{width:104px;height:100%;min-height:112px;object-fit:cover;display:block}
+.cbody{padding:12px 14px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.cbody h2{font:700 1.1rem/1.2 var(--display);margin:0;display:block}
+.blurb{margin:0;font:400 .8rem var(--mono);color:var(--muted)}
+.cbody .tag{font-size:10px;padding:5px 7px}
+.empty{color:var(--muted);margin:0}
+
+body{margin:0}
+img{max-width:100%}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+</style>
+</head>
+<body>
+<main>
+  <section id="list">
+    <header class="top"><h1>Our Recipe Book</h1><p class="sub" id="count"></p></header>
+    <input id="q" type="search" placeholder="Search by name, ingredient or tag" aria-label="Search recipes" autocomplete="off">
+    <div class="cards">
+    <a class="card" href="#bites" data-r="bites" data-s="air fryer sweet and spicy chicken bites chicken air fryer appetizer chicken breasts, cut into bite-sized cubes honey sriracha sauce soy sauce olive oil garlic powder paprika salt and pepper chicken breasts honey sriracha sauce soy sauce olive oil garlic powder paprika salt and pepper">
+      <img src="bites.jpg" alt="" loading="lazy">
+      <div class="cbody"><h2>Air Fryer Sweet and Spicy Chicken Bites</h2><p class="blurb">400°F · 10–12 min in the air fryer</p><div class="tags"><span class="tag">Chicken</span><span class="tag">Air fryer</span></div></div>
+    </a>
+    <a class="card" href="#casserole" data-r="casserole" data-s="crack breakfast casserole breakfast casserole eggs oven breakfast sausage, cooked and crumbled cooked and crumbled bacon shredded cheddar cheese large eggs milk ranch dressing mix (1 oz) frozen hash browns (28 oz) breakfast sausage bacon, cooked and crumbled shredded cheddar cheese large eggs milk frozen hash browns ranch dressing mix (1 oz)">
+      <img src="casserole.jpg" alt="" loading="lazy">
+      <div class="cbody"><h2>Crack Breakfast Casserole</h2><p class="blurb">350°F · 40–45 min in a 9×13 dish</p><div class="tags"><span class="tag">Breakfast</span><span class="tag">Casserole</span></div></div>
+    </a>
+    <a class="card" href="#zucchini-bread" data-r="zucchini-bread" data-s="daina&#x27;s zucchini bread bread zucchini baking family recipe oil sugar eggs vanilla shredded zucchini flour baking soda salt cinnamon baking powder zucchini, shredded eggs flour sugar baking soda baking powder vanilla oil salt cinnamon">
+      <img src="zucchinibread.jpg" alt="" loading="lazy">
+      <div class="cbody"><h2>Daina's Zucchini Bread</h2><p class="blurb">350°F · 40 min to 1 hr · makes 2–3 loaves</p><div class="tags"><span class="tag">Bread</span><span class="tag">Zucchini</span></div></div>
+    </a>
+    <a class="card" href="#pizza-dough" data-r="pizza-dough" data-s="homemade pizza dough pizza dough yeast baking warm water (105 degrees f) granulated sugar active dry yeast olive oil all-purpose flour fine sea salt all-purpose flour, plus up to ½ cup active dry yeast granulated sugar fine sea salt yellow cornmeal olive oil">
+      <img src="pizzadough.jpg" alt="" loading="lazy">
+      <div class="cbody"><h2>Homemade Pizza Dough</h2><p class="blurb">Yeast dough · 5 min proof, optional rise</p><div class="tags"><span class="tag">Pizza</span><span class="tag">Dough</span></div></div>
+    </a>
+    <a class="card" href="#sheet-pan-chicken" data-r="sheet-pan-chicken" data-s="tropical hawaiian chicken on a sheet pan chicken sheet pan one-pan meal chicken breasts, boneless and skinless pineapple chunks (fresh or canned) red bell pepper, sliced red onion, sliced olive oil soy sauce honey garlic powder ground ginger chili flakesoptional salt and pepper fresh cilantrooptional chicken breasts, boneless and skinless red bell pepper red onion pineapple chunks (fresh, or canned in the canned fruit aisle) fresh cilantrooptional olive oil soy sauce honey garlic powder ground ginger chili flakesoptional salt and pepper">
+      <img src="sheetpan.jpg" alt="" loading="lazy">
+      <div class="cbody"><h2>Tropical Hawaiian Chicken on a Sheet Pan</h2><p class="blurb">400°F · 25–30 min on one pan</p><div class="tags"><span class="tag">Chicken</span><span class="tag">Sheet pan</span></div></div>
+    </a>
+    </div>
+    <p class="empty" id="empty" hidden>No recipes match that search.</p>
+  </section>
+  <article class="recipe" id="r-bites" data-r="bites" hidden>
+    <a class="back" href="#recipes">← All recipes</a>
+    <header>
+      <div class="tags"><span class="tag">Chicken</span><span class="tag">Air fryer</span><span class="tag">Appetizer</span></div>
+      <h1>Air Fryer Sweet and Spicy Chicken Bites</h1>
+      
+    </header>
+    <img class="photo" src="bites.jpg" alt="Glossy honey-sriracha chicken bites with sesame and herbs on a dark plate">
+    <div class="stats">
+    <div class="stat"><b>15–20 min</b><span>Marinate</span></div>
+    <div class="stat"><b>400°F</b><span>200°C</span></div>
+    <div class="stat"><b>10–12 min</b><span>Air fry</span></div>
+  </div>
+    <section>
+    <h2>Ingredients <small>tap to check off</small></h2>
+    <div class="scalebar"><span class="lbl">Batch size</span>
+      <div class="scale" role="group" aria-label="Batch size">
+        <button type="button" data-k="1" aria-pressed="true">1x</button>
+        <button type="button" data-k="2" aria-pressed="false">2x</button>
+        <button type="button" data-k="3" aria-pressed="false">3x</button>
+      </div>
+    </div>
+    <ul class="ing">
+      <li><label for="bites-i1"><input type="checkbox" id="bites-i1"><span class="amt" data-q="2" data-u="">2</span><span class="name">chicken breasts, cut into bite-sized cubes</span></label></li>
+      <li><label for="bites-i2"><input type="checkbox" id="bites-i2"><span class="amt" data-q="0.25" data-u="cup">1/4 cup</span><span class="name">honey</span></label></li>
+      <li><label for="bites-i3"><input type="checkbox" id="bites-i3"><span class="amt" data-q="2" data-u="tbsp">2 tbsp</span><span class="name">sriracha sauce</span></label></li>
+      <li><label for="bites-i4"><input type="checkbox" id="bites-i4"><span class="amt" data-q="1" data-u="tbsp">1 tbsp</span><span class="name">soy sauce</span></label></li>
+      <li><label for="bites-i5"><input type="checkbox" id="bites-i5"><span class="amt" data-q="1" data-u="tbsp">1 tbsp</span><span class="name">olive oil</span></label></li>
+      <li><label for="bites-i6"><input type="checkbox" id="bites-i6"><span class="amt" data-q="1" data-u="tsp">1 tsp</span><span class="name">garlic powder</span></label></li>
+      <li><label for="bites-i7"><input type="checkbox" id="bites-i7"><span class="amt" data-q="0.5" data-u="tsp">1/2 tsp</span><span class="name">paprika</span></label></li>
+      <li><label for="bites-i8"><input type="checkbox" id="bites-i8"><span class="amt">to taste</span><span class="name">salt and pepper</span></label></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Directions<small class="sc"></small></h2>
+    <ol class="steps">
+      <li><p>In a bowl, combine honey, sriracha, soy sauce, olive oil, garlic powder, paprika, salt, and pepper.</p></li>
+      <li><p>Toss the chicken cubes in the marinade and let them sit. <span class="t">15–20 min</span></p></li>
+      <li><p>Preheat the air fryer to 400°F (200°C).</p></li>
+      <li><p>Arrange the chicken cubes in a single layer in the air fryer basket. Cook, shaking the basket halfway through. <span class="t">10–12 min</span></p></li>
+      <li><p>Serve hot, with extra dipping sauce if desired.</p></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Grocery list <small>by aisle</small><small class="sc"></small></h2>
+    <div class="aisles">
+      <div class="aisle"><h3>Meat</h3>
+        <ul class="ing">
+          <li><label for="bites-g1"><input type="checkbox" id="bites-g1"><span class="amt" data-q="2" data-u="">2</span><span class="name">chicken breasts</span></label></li>
+        </ul>
+      </div>
+      <div class="aisle"><h3>Pantry</h3>
+        <ul class="ing">
+          <li><label for="bites-g2"><input type="checkbox" id="bites-g2"><span class="amt" data-q="0.25" data-u="cup">1/4 cup</span><span class="name">honey</span></label></li>
+          <li><label for="bites-g3"><input type="checkbox" id="bites-g3"><span class="amt" data-q="2" data-u="tbsp">2 tbsp</span><span class="name">sriracha sauce</span></label></li>
+          <li><label for="bites-g4"><input type="checkbox" id="bites-g4"><span class="amt" data-q="1" data-u="tbsp">1 tbsp</span><span class="name">soy sauce</span></label></li>
+          <li><label for="bites-g5"><input type="checkbox" id="bites-g5"><span class="amt" data-q="1" data-u="tbsp">1 tbsp</span><span class="name">olive oil</span></label></li>
+          <li><label for="bites-g6"><input type="checkbox" id="bites-g6"><span class="amt" data-q="1" data-u="tsp">1 tsp</span><span class="name">garlic powder</span></label></li>
+          <li><label for="bites-g7"><input type="checkbox" id="bites-g7"><span class="amt" data-q="0.5" data-u="tsp">1/2 tsp</span><span class="name">paprika</span></label></li>
+          <li><label for="bites-g8"><input type="checkbox" id="bites-g8"><span class="amt">to taste</span><span class="name">salt and pepper</span></label></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <p class="note">Saved from a screenshot in the Cooking Recipes project.</p>
+  </article>
+  <article class="recipe" id="r-casserole" data-r="casserole" hidden>
+    <a class="back" href="#recipes">← All recipes</a>
+    <header>
+      <div class="tags"><span class="tag">Breakfast</span><span class="tag">Casserole</span><span class="tag">Eggs</span><span class="tag">Oven</span></div>
+      <h1>Crack Breakfast Casserole</h1>
+      
+    </header>
+    <img class="photo" src="casserole.jpg" alt="Breakfast casserole with melted cheddar and crumbled bacon in a baking dish">
+    <div class="stats">
+    <div class="stat"><b>350°F</b><span>175°C oven</span></div>
+    <div class="stat"><b>9×13 in</b><span>Baking dish</span></div>
+    <div class="stat"><b>40–45 min</b><span>Bake</span></div>
+  </div>
+    <section>
+    <h2>Ingredients <small>tap to check off</small></h2>
+    <div class="scalebar"><span class="lbl">Batch size</span>
+      <div class="scale" role="group" aria-label="Batch size">
+        <button type="button" data-k="1" aria-pressed="true">1x</button>
+        <button type="button" data-k="2" aria-pressed="false">2x</button>
+        <button type="button" data-k="3" aria-pressed="false">3x</button>
+      </div>
+    </div>
+    <ul class="ing">
+      <li><label for="casserole-i1"><input type="checkbox" id="casserole-i1"><span class="amt" data-q="1" data-u="lb">1 lb</span><span class="name">breakfast sausage, cooked and crumbled</span></label></li>
+      <li><label for="casserole-i2"><input type="checkbox" id="casserole-i2"><span class="amt" data-q="1" data-u="cup">1 cup</span><span class="name">cooked and crumbled bacon</span></label></li>
+      <li><label for="casserole-i3"><input type="checkbox" id="casserole-i3"><span class="amt" data-q="2" data-u="cup">2 cups</span><span class="name">shredded cheddar cheese</span></label></li>
+      <li><label for="casserole-i4"><input type="checkbox" id="casserole-i4"><span class="amt" data-q="6" data-u="">6</span><span class="name">large eggs</span></label></li>
+      <li><label for="casserole-i5"><input type="checkbox" id="casserole-i5"><span class="amt" data-q="2" data-u="cup">2 cups</span><span class="name">milk</span></label></li>
+      <li><label for="casserole-i6"><input type="checkbox" id="casserole-i6"><span class="amt" data-q="1" data-u="packet">1 packet</span><span class="name">ranch dressing mix (1 oz)</span></label></li>
+      <li><label for="casserole-i7"><input type="checkbox" id="casserole-i7"><span class="amt" data-q="1" data-u="package">1 package</span><span class="name">frozen hash browns (28 oz)</span></label></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Directions<small class="sc"></small></h2>
+    <ol class="steps">
+      <li><p>Preheat your oven to 350°F (175°C) and grease a 9×13-inch baking dish.</p></li>
+      <li><p>Spread the hash browns evenly in the prepared baking dish.</p></li>
+      <li><p>Layer the cooked sausage and crumbled bacon over the hash browns.</p></li>
+      <li><p>Sprinkle <span class="q" data-q="1.5" data-u="cup">1½ cups</span> of the shredded cheddar cheese on top.</p></li>
+      <li><p>In a bowl, whisk together the eggs, milk, and ranch dressing mix until well combined. Pour this mixture evenly over the casserole.</p></li>
+      <li><p>Top with the remaining <span class="q" data-q="0.5" data-u="cup">½ cup</span> of cheddar cheese.</p></li>
+      <li><p>Bake uncovered until the casserole is set and the cheese is melted and bubbly. <span class="t">40–45 min</span></p></li>
+      <li><p>Remove from the oven, let cool slightly, and serve warm.</p></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Grocery list <small>by aisle</small><small class="sc"></small></h2>
+    <div class="aisles">
+      <div class="aisle"><h3>Meat</h3>
+        <ul class="ing">
+          <li><label for="casserole-g1"><input type="checkbox" id="casserole-g1"><span class="amt" data-q="1" data-u="lb">1 lb</span><span class="name">breakfast sausage</span></label></li>
+          <li><label for="casserole-g2"><input type="checkbox" id="casserole-g2"><span class="amt" data-q="1" data-u="cup">1 cup</span><span class="name">bacon, cooked and crumbled</span></label></li>
+        </ul>
+      </div>
+      <div class="aisle"><h3>Dairy and eggs</h3>
+        <ul class="ing">
+          <li><label for="casserole-g3"><input type="checkbox" id="casserole-g3"><span class="amt" data-q="2" data-u="cup">2 cups</span><span class="name">shredded cheddar cheese</span></label></li>
+          <li><label for="casserole-g4"><input type="checkbox" id="casserole-g4"><span class="amt" data-q="6" data-u="">6</span><span class="name">large eggs</span></label></li>
+          <li><label for="casserole-g5"><input type="checkbox" id="casserole-g5"><span class="amt" data-q="2" data-u="cup">2 cups</span><span class="name">milk</span></label></li>
+        </ul>
+      </div>
+      <div class="aisle"><h3>Frozen</h3>
+        <ul class="ing">
+          <li><label for="casserole-g6"><input type="checkbox" id="casserole-g6"><span class="amt" data-q="28" data-u="oz">28 oz</span><span class="name">frozen hash browns</span></label></li>
+        </ul>
+      </div>
+      <div class="aisle"><h3>Pantry</h3>
+        <ul class="ing">
+          <li><label for="casserole-g7"><input type="checkbox" id="casserole-g7"><span class="amt" data-q="1" data-u="packet">1 packet</span><span class="name">ranch dressing mix (1 oz)</span></label></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  </article>
+  <article class="recipe" id="r-zucchini-bread" data-r="zucchini-bread" hidden>
+    <a class="back" href="#recipes">← All recipes</a>
+    <header>
+      <div class="tags"><span class="tag">Bread</span><span class="tag">Zucchini</span><span class="tag">Baking</span><span class="tag">Family recipe</span></div>
+      <h1>Daina's Zucchini Bread</h1>
+      <p class="by">From Daina Romney · Makes <span class="q" data-q="2-3" data-u="loaves">2–3 loaves</span></p>
+    </header>
+    <img class="photo" src="zucchinibread.jpg" alt="Sliced loaf of zucchini bread with ribbons of fresh zucchini">
+    <div class="stats">
+    <div class="stat"><b>350°F</b><span>Oven</span></div>
+    <div class="stat"><b>1 hr</b><span>2 loaf pans</span></div>
+    <div class="stat"><b>40 min</b><span>3 medium pans</span></div>
+  </div>
+    <section>
+    <h2>Ingredients <small>tap to check off</small></h2>
+    <div class="scalebar"><span class="lbl">Batch size</span>
+      <div class="scale" role="group" aria-label="Batch size">
+        <button type="button" data-k="1" aria-pressed="true">1x</button>
+        <button type="button" data-k="2" aria-pressed="false">2x</button>
+        <button type="button" data-k="3" aria-pressed="false">3x</button>
+      </div>
+    </div>
+    <ul class="ing">
+      <li><label for="zucchini-bread-i1"><input type="checkbox" id="zucchini-bread-i1"><span class="amt" data-q="1" data-u="cup">1 cup</span><span class="name">oil</span></label></li>
+      <li><label for="zucchini-bread-i2"><input type="checkbox" id="zucchini-bread-i2"><span class="amt" data-q="2" data-u="cup">2 cups</span><span class="name">sugar</span></label></li>
+      <li><label for="zucchini-bread-i3"><input type="checkbox" id="zucchini-bread-i3"><span class="amt" data-q="3" data-u="">3</span><span class="name">eggs</span></label></li>
+      <li><label for="zucchini-bread-i4"><input type="checkbox" id="zucchini-bread-i4"><span class="amt" data-q="3" data-u="tsp">3 tsp</span><span class="name">vanilla</span></label></li>
+      <li><label for="zucchini-bread-i5"><input type="checkbox" id="zucchini-bread-i5"><span class="amt" data-q="2" data-u="cup">2 cups</span><span class="name">shredded zucchini</span></label></li>
+      <li><label for="zucchini-bread-i6"><input type="checkbox" id="zucchini-bread-i6"><span class="amt" data-q="3" data-u="cup">3 cups</span><span class="name">flour</span></label></li>
+      <li><label for="zucchini-bread-i7"><input type="checkbox" id="zucchini-bread-i7"><span class="amt" data-q="1" data-u="tsp">1 tsp</span><span class="name">baking soda</span></label></li>
+      <li><label for="zucchini-bread-i8"><input type="checkbox" id="zucchini-bread-i8"><span class="amt" data-q="1" data-u="tsp">1 tsp</span><span class="name">salt</span></label></li>
+      <li><label for="zucchini-bread-i9"><input type="checkbox" id="zucchini-bread-i9"><span class="amt" data-q="3" data-u="tsp">3 tsp</span><span class="name">cinnamon</span></label></li>
+      <li><label for="zucchini-bread-i10"><input type="checkbox" id="zucchini-bread-i10"><span class="amt" data-q="0.5" data-u="tsp">1/2 tsp</span><span class="name">baking powder</span></label></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Directions<small class="sc"></small></h2>
+    <ol class="steps">
+      <li><p>Preheat the oven to 350°F.</p></li>
+      <li><p>Combine the oil, sugar, and eggs with a hand mixer.</p></li>
+      <li><p>Blend in the vanilla and zucchini.</p></li>
+      <li><p>Add the dry ingredients.</p></li>
+      <li><p>Bake at 350°F. With 2 loaf pans, bake for <span class="t">1 hour</span>. With 3 medium loaf pans, bake for <span class="t">40 min</span>, or until a toothpick comes out clean.</p></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Grocery list <small>by aisle</small><small class="sc"></small></h2>
+    <div class="aisles">
+      <div class="aisle"><h3>Produce</h3>
+        <ul class="ing">
+          <li><label for="zucchini-bread-g1"><input type="checkbox" id="zucchini-bread-g1"><span class="amt" data-q="2" data-u="cup">2 cups</span><span class="name">zucchini, shredded</span></label></li>
+        </ul>
+      </div>
+      <div class="aisle"><h3>Dairy and eggs</h3>
+        <ul class="ing">
+          <li><label for="zucchini-bread-g2"><input type="checkbox" id="zucchini-bread-g2"><span class="amt" data-q="3" data-u="">3</span><span class="name">eggs</span></label></li>
+        </ul>
+      </div>
+      <div class="aisle"><h3>Baking</h3>
+        <ul class="ing">
+          <li><label for="zucchini-bread-g3"><input type="checkbox" id="zucchini-bread-g3"><span class="amt" data-q="3" data-u="cup">3 cups</span><span class="name">flour</span></label></li>
+          <li><label for="zucchini-bread-g4"><input type="checkbox" id="zucchini-bread-g4"><span class="amt" data-q="2" data-u="cup">2 cups</span><span class="name">sugar</span></label></li>
+          <li><label for="zucchini-bread-g5"><input type="checkbox" id="zucchini-bread-g5"><span class="amt" data-q="1" data-u="tsp">1 tsp</span><span class="name">baking soda</span></label></li>
+          <li><label for="zucchini-bread-g6"><input type="checkbox" id="zucchini-bread-g6"><span class="amt" data-q="0.5" data-u="tsp">1/2 tsp</span><span class="name">baking powder</span></label></li>
+          <li><label for="zucchini-bread-g7"><input type="checkbox" id="zucchini-bread-g7"><span class="amt" data-q="3" data-u="tsp">3 tsp</span><span class="name">vanilla</span></label></li>
+        </ul>
+      </div>
+      <div class="aisle"><h3>Pantry</h3>
+        <ul class="ing">
+          <li><label for="zucchini-bread-g8"><input type="checkbox" id="zucchini-bread-g8"><span class="amt" data-q="1" data-u="cup">1 cup</span><span class="name">oil</span></label></li>
+          <li><label for="zucchini-bread-g9"><input type="checkbox" id="zucchini-bread-g9"><span class="amt" data-q="1" data-u="tsp">1 tsp</span><span class="name">salt</span></label></li>
+          <li><label for="zucchini-bread-g10"><input type="checkbox" id="zucchini-bread-g10"><span class="amt" data-q="3" data-u="tsp">3 tsp</span><span class="name">cinnamon</span></label></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  </article>
+  <article class="recipe" id="r-pizza-dough" data-r="pizza-dough" hidden>
+    <a class="back" href="#recipes">← All recipes</a>
+    <header>
+      <div class="tags"><span class="tag">Pizza</span><span class="tag">Dough</span><span class="tag">Yeast</span><span class="tag">Baking</span></div>
+      <h1>Homemade Pizza Dough</h1>
+      
+    </header>
+    <img class="photo" src="pizzadough.jpg" alt="Two smooth rounds of pizza dough on a lightly floured surface">
+    <div class="stats">
+    <div class="stat"><b>105°F</b><span>Warm water</span></div>
+    <div class="stat"><b>5 min</b><span>Yeast proof</span></div>
+    <div class="stat"><b>10 min–1 hr</b><span>Optional rise</span></div>
+  </div>
+    <section>
+    <h2>Ingredients <small>tap to check off</small></h2>
+    <div class="scalebar"><span class="lbl">Batch size</span>
+      <div class="scale" role="group" aria-label="Batch size">
+        <button type="button" data-k="1" aria-pressed="true">1x</button>
+        <button type="button" data-k="2" aria-pressed="false">2x</button>
+        <button type="button" data-k="3" aria-pressed="false">3x</button>
+      </div>
+    </div>
+    <ul class="ing">
+      <li><label for="pizza-dough-i1"><input type="checkbox" id="pizza-dough-i1"><span class="amt" data-q="1" data-u="cup">1 cup</span><span class="name">warm water (105 degrees F)</span></label></li>
+      <li><label for="pizza-dough-i2"><input type="checkbox" id="pizza-dough-i2"><span class="amt" data-q="1" data-u="tbsp">1 tbsp</span><span class="name">granulated sugar</span></label></li>
+      <li><label for="pizza-dough-i3"><input type="checkbox" id="pizza-dough-i3"><span class="amt" data-q="1" data-u="tbsp">1 tbsp</span><span class="name">active dry yeast</span></label></li>
+      <li><label for="pizza-dough-i4"><input type="checkbox" id="pizza-dough-i4"><span class="amt" data-q="1" data-u="tbsp">1 tbsp</span><span class="name">olive oil</span></label></li>
+      <li><label for="pizza-dough-i5"><input type="checkbox" id="pizza-dough-i5"><span class="amt" data-q="2-2.5" data-u="cup">2–2½ cups</span><span class="name">all-purpose flour</span></label></li>
+      <li><label for="pizza-dough-i6"><input type="checkbox" id="pizza-dough-i6"><span class="amt" data-q="1" data-u="tsp">1 tsp</span><span class="name">fine sea salt</span></label></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Make the dough<small class="sc"></small></h2>
+    <ol class="steps">
+      <li><p>Combine the warm water, yeast, and sugar in a large mixing bowl and stir to combine.</p></li>
+      <li><p>Let the mixture sit until it becomes frothy and bubbles form. <span class="t">5 min</span></p></li>
+      <li><p>Gently stir in the olive oil.</p></li>
+      <li><p>Add <span class="q" data-q="2" data-u="cup">2 cups</span> of flour and the salt. Mix with a spatula until a ball begins to form (the dough will still be slightly sticky). Add more flour as needed to form a dough ball.</p></li>
+      <li><p>Transfer to a floured surface and knead into a smooth dough, adding up to <span class="q" data-q="0.5" data-u="cup">½ cup</span> extra flour if needed.</p></li>
+      <li><p><b>Optional.</b> Cover the bowl with a damp tea towel and let the dough rise. <span class="t">10 min–1 hr</span></p></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Grocery list <small>by aisle</small><small class="sc"></small></h2>
+    <div class="aisles">
+      <div class="aisle"><h3>Baking</h3>
+        <ul class="ing">
+          <li><label for="pizza-dough-g1"><input type="checkbox" id="pizza-dough-g1"><span class="amt" data-q="2-2.5" data-u="cup">2–2½ cups</span><span class="name">all-purpose flour, plus up to <span class="q" data-q="0.5" data-u="cup">½ cup</span> extra for kneading</span></label></li>
+          <li><label for="pizza-dough-g2"><input type="checkbox" id="pizza-dough-g2"><span class="amt" data-q="1" data-u="tbsp">1 tbsp</span><span class="name">active dry yeast</span></label></li>
+          <li><label for="pizza-dough-g3"><input type="checkbox" id="pizza-dough-g3"><span class="amt" data-q="1" data-u="tbsp">1 tbsp</span><span class="name">granulated sugar</span></label></li>
+          <li><label for="pizza-dough-g4"><input type="checkbox" id="pizza-dough-g4"><span class="amt" data-q="1" data-u="tsp">1 tsp</span><span class="name">fine sea salt</span></label></li>
+          <li><label for="pizza-dough-g6"><input type="checkbox" id="pizza-dough-g6"><span class="amt">as needed</span><span class="name">yellow cornmeal</span></label></li>
+        </ul>
+      </div>
+      <div class="aisle"><h3>Pantry</h3>
+        <ul class="ing">
+          <li><label for="pizza-dough-g5"><input type="checkbox" id="pizza-dough-g5"><span class="amt" data-q="1" data-u="tbsp">1 tbsp</span><span class="name">olive oil</span></label></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  </article>
+  <article class="recipe" id="r-sheet-pan-chicken" data-r="sheet-pan-chicken" hidden>
+    <a class="back" href="#recipes">← All recipes</a>
+    <header>
+      <div class="tags"><span class="tag">Chicken</span><span class="tag">Sheet pan</span><span class="tag">One-pan meal</span></div>
+      <h1>Tropical Hawaiian Chicken on a Sheet Pan</h1>
+      
+    </header>
+    <img class="photo" src="sheetpan.jpg" alt="Roasted chicken with pineapple, red and green peppers and cilantro on a sheet pan">
+    <div class="stats">
+    <div class="stat"><b>400°F</b><span>200°C oven</span></div>
+    <div class="stat"><b>25–30 min</b><span>Roast</span></div>
+    <div class="stat"><b>165°F</b><span>75°C chicken</span></div>
+  </div>
+    <section>
+    <h2>Ingredients <small>tap to check off</small></h2>
+    <div class="scalebar"><span class="lbl">Batch size</span>
+      <div class="scale" role="group" aria-label="Batch size">
+        <button type="button" data-k="1" aria-pressed="true">1x</button>
+        <button type="button" data-k="2" aria-pressed="false">2x</button>
+        <button type="button" data-k="3" aria-pressed="false">3x</button>
+      </div>
+    </div>
+    <ul class="ing">
+      <li><label for="sheet-pan-chicken-i1"><input type="checkbox" id="sheet-pan-chicken-i1"><span class="amt" data-q="2" data-u="">2</span><span class="name">chicken breasts, boneless and skinless</span></label></li>
+      <li><label for="sheet-pan-chicken-i2"><input type="checkbox" id="sheet-pan-chicken-i2"><span class="amt" data-q="1" data-u="cup">1 cup</span><span class="name">pineapple chunks (fresh or canned)</span></label></li>
+      <li><label for="sheet-pan-chicken-i3"><input type="checkbox" id="sheet-pan-chicken-i3"><span class="amt" data-q="1" data-u="">1</span><span class="name">red bell pepper, sliced</span></label></li>
+      <li><label for="sheet-pan-chicken-i4"><input type="checkbox" id="sheet-pan-chicken-i4"><span class="amt" data-q="0.5" data-u="">1/2</span><span class="name">red onion, sliced</span></label></li>
+      <li><label for="sheet-pan-chicken-i5"><input type="checkbox" id="sheet-pan-chicken-i5"><span class="amt" data-q="2" data-u="tbsp">2 tbsp</span><span class="name">olive oil</span></label></li>
+      <li><label for="sheet-pan-chicken-i6"><input type="checkbox" id="sheet-pan-chicken-i6"><span class="amt" data-q="1" data-u="tbsp">1 tbsp</span><span class="name">soy sauce</span></label></li>
+      <li><label for="sheet-pan-chicken-i7"><input type="checkbox" id="sheet-pan-chicken-i7"><span class="amt" data-q="1" data-u="tbsp">1 tbsp</span><span class="name">honey</span></label></li>
+      <li><label for="sheet-pan-chicken-i8"><input type="checkbox" id="sheet-pan-chicken-i8"><span class="amt" data-q="1" data-u="tsp">1 tsp</span><span class="name">garlic powder</span></label></li>
+      <li><label for="sheet-pan-chicken-i9"><input type="checkbox" id="sheet-pan-chicken-i9"><span class="amt" data-q="0.5" data-u="tsp">1/2 tsp</span><span class="name">ground ginger</span></label></li>
+      <li><label for="sheet-pan-chicken-i10"><input type="checkbox" id="sheet-pan-chicken-i10"><span class="amt" data-q="0.25" data-u="tsp">1/4 tsp</span><span class="name">chili flakes<span class="opt">optional</span></span></label></li>
+      <li><label for="sheet-pan-chicken-i11"><input type="checkbox" id="sheet-pan-chicken-i11"><span class="amt">to taste</span><span class="name">salt and pepper</span></label></li>
+      <li><label for="sheet-pan-chicken-i12"><input type="checkbox" id="sheet-pan-chicken-i12"><span class="amt">garnish</span><span class="name">fresh cilantro<span class="opt">optional</span></span></label></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Directions<small class="sc"></small></h2>
+    <ol class="steps">
+      <li><p>Preheat the oven to 400°F (200°C).</p></li>
+      <li><p>In a small bowl, whisk together olive oil, soy sauce, honey, garlic powder, ground ginger, chili flakes, salt, and pepper.</p></li>
+      <li><p>Place the chicken breasts on a sheet pan. Drizzle the marinade over the chicken and turn to coat evenly.</p></li>
+      <li><p>Add the pineapple chunks, red bell pepper, and onion slices to the pan around the chicken.</p></li>
+      <li><p>Roast until the chicken reaches an internal temperature of 165°F (75°C) and the vegetables are tender. <span class="t">25–30 min</span></p></li>
+      <li><p>Garnish with fresh cilantro before serving.</p></li>
+      <li><p>Serve the chicken with the roasted vegetables for a complete, easy meal.</p></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Grocery list <small>by aisle</small><small class="sc"></small></h2>
+    <div class="aisles">
+      <div class="aisle"><h3>Meat</h3>
+        <ul class="ing">
+          <li><label for="sheet-pan-chicken-g1"><input type="checkbox" id="sheet-pan-chicken-g1"><span class="amt" data-q="2" data-u="">2</span><span class="name">chicken breasts, boneless and skinless</span></label></li>
+        </ul>
+      </div>
+      <div class="aisle"><h3>Produce</h3>
+        <ul class="ing">
+          <li><label for="sheet-pan-chicken-g2"><input type="checkbox" id="sheet-pan-chicken-g2"><span class="amt" data-q="1" data-u="">1</span><span class="name">red bell pepper</span></label></li>
+          <li><label for="sheet-pan-chicken-g3"><input type="checkbox" id="sheet-pan-chicken-g3"><span class="amt" data-q="0.5" data-u="">1/2</span><span class="name">red onion</span></label></li>
+          <li><label for="sheet-pan-chicken-g4"><input type="checkbox" id="sheet-pan-chicken-g4"><span class="amt" data-q="1" data-u="cup">1 cup</span><span class="name">pineapple chunks (fresh, or canned in the canned fruit aisle)</span></label></li>
+          <li><label for="sheet-pan-chicken-g5"><input type="checkbox" id="sheet-pan-chicken-g5"><span class="amt">garnish</span><span class="name">fresh cilantro<span class="opt">optional</span></span></label></li>
+        </ul>
+      </div>
+      <div class="aisle"><h3>Pantry</h3>
+        <ul class="ing">
+          <li><label for="sheet-pan-chicken-g6"><input type="checkbox" id="sheet-pan-chicken-g6"><span class="amt" data-q="2" data-u="tbsp">2 tbsp</span><span class="name">olive oil</span></label></li>
+          <li><label for="sheet-pan-chicken-g7"><input type="checkbox" id="sheet-pan-chicken-g7"><span class="amt" data-q="1" data-u="tbsp">1 tbsp</span><span class="name">soy sauce</span></label></li>
+          <li><label for="sheet-pan-chicken-g8"><input type="checkbox" id="sheet-pan-chicken-g8"><span class="amt" data-q="1" data-u="tbsp">1 tbsp</span><span class="name">honey</span></label></li>
+          <li><label for="sheet-pan-chicken-g9"><input type="checkbox" id="sheet-pan-chicken-g9"><span class="amt" data-q="1" data-u="tsp">1 tsp</span><span class="name">garlic powder</span></label></li>
+          <li><label for="sheet-pan-chicken-g10"><input type="checkbox" id="sheet-pan-chicken-g10"><span class="amt" data-q="0.5" data-u="tsp">1/2 tsp</span><span class="name">ground ginger</span></label></li>
+          <li><label for="sheet-pan-chicken-g11"><input type="checkbox" id="sheet-pan-chicken-g11"><span class="amt" data-q="0.25" data-u="tsp">1/4 tsp</span><span class="name">chili flakes<span class="opt">optional</span></span></label></li>
+          <li><label for="sheet-pan-chicken-g12"><input type="checkbox" id="sheet-pan-chicken-g12"><span class="amt">to taste</span><span class="name">salt and pepper</span></label></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <p class="note">Saved from a screenshot in the Cooking Recipes project.</p>
+  </article>
+</main>
+<script>
+(function(){
+  var F=[[1/8,"⅛"],[1/4,"¼"],[1/3,"⅓"],[3/8,"⅜"],[1/2,"½"],[5/8,"⅝"],[2/3,"⅔"],[3/4,"¾"],[7/8,"⅞"]];
+  function num(v){var w=Math.floor(v+0.02),f=v-w;if(Math.abs(f)<0.02)return String(w);
+    for(var i=0;i<F.length;i++){if(Math.abs(f-F[i][0])<0.02)return (w?String(w):"")+F[i][1];}
+    return String(Math.round(v*10)/10);}
+  function conv(q,u,k){var v=q*k;
+    if(u==="tsp"||u==="tbsp"){var t=v*(u==="tbsp"?3:1);
+      if(t>=12&&Math.abs(t/12-Math.round(t/12))<1e-6)return [t/48,"cup"];
+      if(t>=3&&Math.abs(t/1.5-Math.round(t/1.5))<1e-6)return [t/3,"tbsp"];
+      return [t,"tsp"];}
+    return [v,u];}
+  function label(u,v){if((u==="cup"||u==="packet"||u==="package")&&v>1.0001)return u+"s";return u;}
+  function scaled(qs,u,k){var q=qs.split("-").map(Number),out,lab;
+    if(q.length===2){out=num(q[0]*k)+"–"+num(q[1]*k);lab=label(u,q[1]*k);}
+    else{var c=conv(q[0],u,k);out=num(c[0]);lab=label(c[1],c[0]);}
+    return out+(lab?" "+lab:"");}
+  window.__scaled=scaled;
+  if(typeof document==="undefined")return;
+  var recipes=[].slice.call(document.querySelectorAll(".recipe"));
+  recipes.forEach(function(r){
+    var els=[].slice.call(r.querySelectorAll("[data-q]"));
+    els.forEach(function(e){e.setAttribute("data-o",e.textContent);});
+    var btns=[].slice.call(r.querySelectorAll(".scale button"));
+    var marks=[].slice.call(r.querySelectorAll("h2 .sc"));
+    function apply(k){
+      els.forEach(function(e){e.textContent=k===1?e.getAttribute("data-o"):scaled(e.getAttribute("data-q"),e.getAttribute("data-u")||"",k);});
+      marks.forEach(function(m){m.textContent=k>1?"· "+k+"x":"";});}
+    btns.forEach(function(b){b.addEventListener("click",function(){
+      btns.forEach(function(x){x.setAttribute("aria-pressed",x===b?"true":"false");});
+      apply(Number(b.getAttribute("data-k")));});});
+  });
+  var list=document.getElementById("list");
+  function route(){
+    var h=location.hash.slice(1),found=false;
+    recipes.forEach(function(r){var on=r.id==="r-"+h;r.hidden=!on;if(on)found=true;});
+    list.hidden=found;
+    window.scrollTo(0,0);
+  }
+  window.addEventListener("hashchange",route);route();
+  var q=document.getElementById("q"),cards=[].slice.call(document.querySelectorAll(".card")),
+      empty=document.getElementById("empty"),count=document.getElementById("count");
+  function filter(){
+    var t=q.value.trim().toLowerCase(),n=0;
+    cards.forEach(function(c){var ok=!t||c.getAttribute("data-s").indexOf(t)>-1;c.hidden=!ok;if(ok)n++;});
+    empty.hidden=n>0;
+    count.textContent=n===cards.length?n+" recipes":n+" of "+cards.length+" recipes";
+  }
+  q.addEventListener("input",filter);filter();
+})();
+</script>
+</body>
+</html>
