@@ -27,6 +27,13 @@
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) [data-r="caramels"]{--accent:#d6a6ea;--honey:#f0b060;--accent-ink:#1a1420}}
 :root[data-theme="dark"] [data-r="caramels"]{--accent:#d6a6ea;--honey:#f0b060;--accent-ink:#1a1420}
 
+
+[data-r="rolls"]{--accent:#9a5410;--honey:#2f6a46;--accent-ink:#fff;--pan:#c9d3c4;--roll:#d9954a;--roll2:#b9722e;--roll3:#eab876}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) [data-r="rolls"]{--accent:#eeab5e;--honey:#8cc9a2;--accent-ink:#141a15;--pan:#3a463c;--roll:#c98440;--roll2:#a6662a;--roll3:#e3ad69}}
+:root[data-theme="dark"] [data-r="rolls"]{--accent:#eeab5e;--honey:#8cc9a2;--accent-ink:#141a15;--pan:#3a463c;--roll:#c98440;--roll2:#a6662a;--roll3:#e3ad69}
+figure.photo{margin:0;position:relative;aspect-ratio:auto;border:0;border-radius:0}
+figure.photo svg{display:block;width:100%;height:auto;border-radius:8px;border:1px solid var(--line);background:var(--surface)}
+figure.photo figcaption{position:absolute;left:10px;bottom:10px;font:500 11px/1 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--muted);background:var(--surface);border:1px solid var(--line);padding:5px 7px;border-radius:4px}
 [hidden]{display:none!important}
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.55;
@@ -111,6 +118,10 @@ h2 .sc{font:500 .8rem var(--mono);color:var(--honey)}
     <a class="card" href="#caramels" data-r="caramels" data-s="mrs. roberts caramels candy caramel microwave beth roberts butter, soft white sugar brown sugar karo syrup eagle condensed milk butter white sugar brown sugar karo syrup">
       <img src="caramels.jpg" alt="" loading="lazy">
       <div class="cbody"><h2>Mrs. Roberts Caramels</h2><p class="blurb">12 min in the microwave · 9×13 pan</p><div class="tags"><span class="tag">Candy</span><span class="tag">Caramel</span></div></div>
+    </a>
+    <a class="card" href="#rolls" data-r="rolls" data-s="aubry's rolls rolls yeast dough baking yeast sugar hot water salt sugar vegetable oil eggs warm milk flour eggs milk yeast sugar salt flour vegetable oil hot water">
+      <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 104 112'%3E%3Crect width='104' height='112' fill='%23e6ebe2'/%3E%3Crect x='8' y='26' width='88' height='60' rx='8' fill='%23c9d3c4'/%3E%3Cg fill='%23d9954a'%3E%3Ccircle cx='28' cy='46' r='14'/%3E%3Ccircle cx='52' cy='46' r='14'/%3E%3Ccircle cx='76' cy='46' r='14'/%3E%3Ccircle cx='28' cy='68' r='14'/%3E%3Ccircle cx='52' cy='68' r='14'/%3E%3Ccircle cx='76' cy='68' r='14'/%3E%3C/g%3E%3C/svg%3E" alt="" loading="lazy">
+      <div class="cbody"><h2>Aubry's Rolls</h2><p class="blurb">350° · 10 min bake · yeast dough</p><div class="tags"><span class="tag">Rolls</span><span class="tag">Yeast dough</span></div></div>
     </a>
     </div>
     <p class="empty" id="empty" hidden>No recipes match that search.</p>
@@ -550,7 +561,100 @@ h2 .sc{font:500 .8rem var(--mono);color:var(--honey)}
     </div>
   </section>
   </article>
-</main>
+  <article class="recipe" id="r-rolls" data-r="rolls" hidden>
+    <a class="back" href="#recipes">← All recipes</a>
+
+  <header>
+    <div class="tags"><span class="tag">Rolls</span><span class="tag">Yeast dough</span><span class="tag">Baking</span></div>
+    <h1>Aubry's Rolls</h1>
+  </header>
+
+  <figure class="photo">
+    <svg viewBox="0 0 680 380" role="img" aria-label="Drawn illustration of a pan of baked dinner rolls">
+      <rect x="60" y="70" width="560" height="250" rx="22" fill="var(--pan)"/>
+      <rect x="76" y="86" width="528" height="218" rx="14" fill="var(--surface)" opacity=".55"/>
+      <g>
+        <g fill="var(--roll)">
+          <ellipse cx="150" cy="150" rx="46" ry="40"/><ellipse cx="256" cy="150" rx="46" ry="40"/><ellipse cx="362" cy="150" rx="46" ry="40"/><ellipse cx="468" cy="150" rx="46" ry="40"/><ellipse cx="548" cy="150" rx="30" ry="40"/>
+          <ellipse cx="150" cy="240" rx="46" ry="40"/><ellipse cx="256" cy="240" rx="46" ry="40"/><ellipse cx="362" cy="240" rx="46" ry="40"/><ellipse cx="468" cy="240" rx="46" ry="40"/><ellipse cx="548" cy="240" rx="30" ry="40"/>
+        </g>
+        <g fill="var(--roll3)">
+          <ellipse cx="150" cy="138" rx="30" ry="20"/><ellipse cx="256" cy="138" rx="30" ry="20"/><ellipse cx="362" cy="138" rx="30" ry="20"/><ellipse cx="468" cy="138" rx="30" ry="20"/><ellipse cx="548" cy="138" rx="18" ry="20"/>
+          <ellipse cx="150" cy="228" rx="30" ry="20"/><ellipse cx="256" cy="228" rx="30" ry="20"/><ellipse cx="362" cy="228" rx="30" ry="20"/><ellipse cx="468" cy="228" rx="30" ry="20"/><ellipse cx="548" cy="228" rx="18" ry="20"/>
+        </g>
+        <g fill="none" stroke="var(--roll2)" stroke-width="3" stroke-linecap="round" opacity=".7">
+          <path d="M112 182q38 12 76 0M218 182q38 12 76 0M324 182q38 12 76 0M430 182q38 12 76 0M524 182q24 12 48 0"/>
+        </g>
+      </g>
+    </svg>
+    <figcaption>Illustration</figcaption>
+  </figure>
+
+  <div class="stats">
+    <div class="stat"><b>350°</b><span>Oven</span></div>
+    <div class="stat"><b>10 min</b><span>Bake</span></div>
+    <div class="stat"><b data-q="5-5.5" data-u="">5–5½</b><span>Cups flour</span></div>
+  </div>
+
+  <section>
+    <h2>Ingredients <small>tap to check off</small></h2>
+    <div class="scalebar"><span class="lbl">Batch size</span>
+      <div class="scale" role="group" aria-label="Batch size">
+        <button type="button" data-k="1" aria-pressed="true">1x</button>
+        <button type="button" data-k="2" aria-pressed="false">2x</button>
+        <button type="button" data-k="3" aria-pressed="false">3x</button>
+      </div>
+    </div>
+    <ul class="ing">
+      <li><label for="rolls-i1"><input type="checkbox" id="rolls-i1"><span class="amt" data-q="1" data-u="tbsp">1 tbsp</span><span class="name">yeast</span></label></li>
+      <li><label for="rolls-i2"><input type="checkbox" id="rolls-i2"><span class="amt" data-q="1" data-u="tbsp">1 tbsp</span><span class="name">sugar</span></label></li>
+      <li><label for="rolls-i3"><input type="checkbox" id="rolls-i3"><span class="amt" data-q="0.3333333333" data-u="cup">⅓ cup</span><span class="name">hot water</span></label></li>
+      <li><label for="rolls-i4"><input type="checkbox" id="rolls-i4"><span class="amt" data-q="0.75" data-u="tsp">¾ tsp</span><span class="name">salt</span></label></li>
+      <li><label for="rolls-i5"><input type="checkbox" id="rolls-i5"><span class="amt" data-q="0.5" data-u="cup">½ cup</span><span class="name">sugar</span></label></li>
+      <li><label for="rolls-i6"><input type="checkbox" id="rolls-i6"><span class="amt" data-q="0.5" data-u="cup">½ cup</span><span class="name">vegetable oil</span></label></li>
+      <li><label for="rolls-i7"><input type="checkbox" id="rolls-i7"><span class="amt" data-q="3" data-u="">3</span><span class="name">eggs</span></label></li>
+      <li><label for="rolls-i8"><input type="checkbox" id="rolls-i8"><span class="amt" data-q="1" data-u="cup">1 cup</span><span class="name">warm milk</span></label></li>
+      <li><label for="rolls-i9"><input type="checkbox" id="rolls-i9"><span class="amt" data-q="5-5.5" data-u="cup">5–5½ cups</span><span class="name">flour (about)</span></label></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Directions<small class="sc"></small></h2>
+    <ol class="steps">
+      <li><p>Combine <span class="q" data-q="1" data-u="tbsp">1 tbsp</span> yeast, <span class="q" data-q="1" data-u="tbsp">1 tbsp</span> sugar, and <span class="q" data-q="0.3333333333" data-u="cup">⅓ cup</span> hot water. Let sit &amp; ri…</p></li>
+      <li><p>Bake at 350°. <span class="t">10 min</span></p></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Grocery list <small>by aisle</small><small class="sc"></small></h2>
+    <div class="aisles">
+      <div class="aisle"><h3>Dairy and eggs</h3>
+        <ul class="ing">
+          <li><label for="rolls-g1"><input type="checkbox" id="rolls-g1"><span class="amt" data-q="3" data-u="">3</span><span class="name">eggs</span></label></li>
+          <li><label for="rolls-g2"><input type="checkbox" id="rolls-g2"><span class="amt" data-q="1" data-u="cup">1 cup</span><span class="name">milk, warm</span></label></li>
+        </ul>
+      </div>
+      <div class="aisle"><h3>Baking</h3>
+        <ul class="ing">
+          <li><label for="rolls-g3"><input type="checkbox" id="rolls-g3"><span class="amt" data-q="1" data-u="tbsp">1 tbsp</span><span class="name">yeast</span></label></li>
+          <li><label for="rolls-g4"><input type="checkbox" id="rolls-g4"><span class="amt" data-q="1" data-u="tbsp">1 tbsp</span><span class="name">sugar</span></label></li>
+          <li><label for="rolls-g5"><input type="checkbox" id="rolls-g5"><span class="amt" data-q="0.5" data-u="cup">½ cup</span><span class="name">sugar</span></label></li>
+          <li><label for="rolls-g6"><input type="checkbox" id="rolls-g6"><span class="amt" data-q="0.75" data-u="tsp">¾ tsp</span><span class="name">salt</span></label></li>
+          <li><label for="rolls-g7"><input type="checkbox" id="rolls-g7"><span class="amt" data-q="5-5.5" data-u="cup">5–5½ cups</span><span class="name">flour (about)</span></label></li>
+        </ul>
+      </div>
+      <div class="aisle"><h3>Pantry</h3>
+        <ul class="ing">
+          <li><label for="rolls-g8"><input type="checkbox" id="rolls-g8"><span class="amt" data-q="0.5" data-u="cup">½ cup</span><span class="name">vegetable oil</span></label></li>
+          <li><label for="rolls-g9"><input type="checkbox" id="rolls-g9"><span class="amt" data-q="0.3333333333" data-u="cup">⅓ cup</span><span class="name">hot water</span></label></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  </article>
+  </main>
 <script>
 (function(){
   var F=[[1/8,"⅛"],[1/4,"¼"],[1/3,"⅓"],[3/8,"⅜"],[1/2,"½"],[5/8,"⅝"],[2/3,"⅔"],[3/4,"¾"],[7/8,"⅞"]];
