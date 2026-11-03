@@ -31,6 +31,9 @@
 [data-r="rolls"]{--accent:#9a5410;--honey:#2f6a46;--accent-ink:#fff;--pan:#c9d3c4;--roll:#d9954a;--roll2:#b9722e;--roll3:#eab876}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) [data-r="rolls"]{--accent:#eeab5e;--honey:#8cc9a2;--accent-ink:#141a15;--pan:#3a463c;--roll:#c98440;--roll2:#a6662a;--roll3:#e3ad69}}
 :root[data-theme="dark"] [data-r="rolls"]{--accent:#eeab5e;--honey:#8cc9a2;--accent-ink:#141a15;--pan:#3a463c;--roll:#c98440;--roll2:#a6662a;--roll3:#e3ad69}
+[data-r="popcorn"]{--accent:#4a4fa6;--honey:#a45d0c;--accent-ink:#fff}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) [data-r="popcorn"]{--accent:#a9adf2;--honey:#f0b463;--accent-ink:#14141f}}
+:root[data-theme="dark"] [data-r="popcorn"]{--accent:#a9adf2;--honey:#f0b463;--accent-ink:#14141f}
 [hidden]{display:none!important}
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.55;
@@ -119,6 +122,10 @@ h2 .sc{font:500 .8rem var(--mono);color:var(--honey)}
     <a class="card" href="#rolls" data-r="rolls" data-s="aubry's rolls rolls yeast dough baking yeast sugar hot water salt sugar vegetable oil eggs warm milk flour eggs milk yeast sugar salt flour vegetable oil hot water">
       <img src="rolls.jpg" alt="" loading="lazy">
       <div class="cbody"><h2>Aubry's Rolls</h2><p class="blurb">350° · 10 min bake · yeast dough</p><div class="tags"><span class="tag">Rolls</span><span class="tag">Yeast dough</span></div></div>
+    </a>
+    <a class="card" href="#popcorn" data-r="popcorn" data-s="carmel popcorn popcorn microwave snack popcorn, strained so seeds fall to the bottom and can be discarded brown sugar butter marshmallows butter brown sugar marshmallows popcorn">
+      <img src="popcorn.jpg" alt="" loading="lazy">
+      <div class="cbody"><h2>Carmel Popcorn</h2><p class="blurb">Microwave caramel · 22 marshmallows</p><div class="tags"><span class="tag">Popcorn</span><span class="tag">Microwave</span></div></div>
     </a>
     </div>
     <p class="empty" id="empty" hidden>No recipes match that search.</p>
@@ -631,6 +638,67 @@ h2 .sc{font:500 .8rem var(--mono);color:var(--honey)}
     </div>
   </section>
 
+  </article>
+  <article class="recipe" id="r-popcorn" data-r="popcorn" hidden>
+    <a class="back" href="#recipes">← All recipes</a>
+    <header>
+      <div class="tags"><span class="tag">Popcorn</span><span class="tag">Microwave</span><span class="tag">Snack</span></div>
+      <h1>Carmel Popcorn</h1>
+    </header>
+    <img class="photo" src="popcorn.jpg" alt="Caramel-coated popcorn piled in a red mixing bowl">
+    <div class="stats">
+    <div class="stat"><b data-q="2" data-u="bags">2 bags</b><span>Popcorn</span></div>
+    <div class="stat"><b data-q="22" data-u="">22</b><span>Marshmallows</span></div>
+    <div class="stat"><b>Microwave</b><span>Caramel</span></div>
+  </div>
+    <section>
+    <h2>Ingredients <small>tap to check off</small></h2>
+    <div class="scalebar"><span class="lbl">Batch size</span>
+      <div class="scale" role="group" aria-label="Batch size">
+        <button type="button" data-k="1" aria-pressed="true">1x</button>
+        <button type="button" data-k="2" aria-pressed="false">2x</button>
+        <button type="button" data-k="3" aria-pressed="false">3x</button>
+      </div>
+    </div>
+    <ul class="ing">
+      <li><label for="popcorn-i1"><input type="checkbox" id="popcorn-i1"><span class="amt" data-q="2" data-u="bags">2 bags</span><span class="name">popcorn, strained so seeds fall to the bottom and can be discarded</span></label></li>
+      <li><label for="popcorn-i2"><input type="checkbox" id="popcorn-i2"><span class="amt" data-q="1" data-u="cup">1 cup</span><span class="name">brown sugar</span></label></li>
+      <li><label for="popcorn-i3"><input type="checkbox" id="popcorn-i3"><span class="amt" data-q="1" data-u="cup">1 cup</span><span class="name">butter</span></label></li>
+      <li><label for="popcorn-i4"><input type="checkbox" id="popcorn-i4"><span class="amt" data-q="22" data-u="">22</span><span class="name">marshmallows</span></label></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Directions<small class="sc"></small></h2>
+    <ol class="steps">
+      <li><p>Strain the <span class="q" data-q="2" data-u="bags">2 bags</span> of popcorn so the seeds fall to the bottom. Discard the seeds.</p></li>
+      <li><p>For the caramel, combine <span class="q" data-q="1" data-u="cup">1 cup</span> brown sugar, <span class="q" data-q="1" data-u="cup">1 cup</span> butter, and <span class="q" data-q="22" data-u="">22</span> marshmallows.</p></li>
+      <li><p>Microwave, stir, and repeat until it is a creamy caramel sauce.</p></li>
+      <li><p>Pour over the popcorn with no seeds and enjoy.</p></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Grocery list <small>by aisle</small><small class="sc"></small></h2>
+    <div class="aisles">
+      <div class="aisle"><h3>Dairy and eggs</h3>
+        <ul class="ing">
+          <li><label for="popcorn-g1"><input type="checkbox" id="popcorn-g1"><span class="amt" data-q="1" data-u="cup">1 cup</span><span class="name">butter</span></label></li>
+        </ul>
+      </div>
+      <div class="aisle"><h3>Baking</h3>
+        <ul class="ing">
+          <li><label for="popcorn-g2"><input type="checkbox" id="popcorn-g2"><span class="amt" data-q="1" data-u="cup">1 cup</span><span class="name">brown sugar</span></label></li>
+          <li><label for="popcorn-g3"><input type="checkbox" id="popcorn-g3"><span class="amt" data-q="22" data-u="">22</span><span class="name">marshmallows</span></label></li>
+        </ul>
+      </div>
+      <div class="aisle"><h3>Pantry</h3>
+        <ul class="ing">
+          <li><label for="popcorn-g4"><input type="checkbox" id="popcorn-g4"><span class="amt" data-q="2" data-u="bags">2 bags</span><span class="name">popcorn</span></label></li>
+        </ul>
+      </div>
+    </div>
+  </section>
   </article>
   </main>
 <script>
