@@ -1,9 +1,6 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>Our Recipe Book</title>
+<meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap">
 <style>
 :root{--bg:#f2f4f6;--surface:#fff;--fg:#161c22;--muted:#586571;--line:#d9dfe5;--accent:#2f5d8a;--honey:#8a5a1f;--accent-ink:#fff;
@@ -25,6 +22,10 @@
 [data-r="sheet-pan-chicken"]{--accent:#0d7765;--honey:#b98200;--accent-ink:#fff}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) [data-r="sheet-pan-chicken"]{--accent:#4fd1b5;--honey:#f2c94c;--accent-ink:#0d1a17}}
 :root[data-theme="dark"] [data-r="sheet-pan-chicken"]{--accent:#4fd1b5;--honey:#f2c94c;--accent-ink:#0d1a17}
+
+[data-r="caramels"]{--accent:#7a3f8f;--honey:#9a5a14;--accent-ink:#fff}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) [data-r="caramels"]{--accent:#d6a6ea;--honey:#f0b060;--accent-ink:#1a1420}}
+:root[data-theme="dark"] [data-r="caramels"]{--accent:#d6a6ea;--honey:#f0b060;--accent-ink:#1a1420}
 
 [hidden]{display:none!important}
 *{box-sizing:border-box}
@@ -81,13 +82,7 @@ h2 .sc{font:500 .8rem var(--mono);color:var(--honey)}
 .blurb{margin:0;font:400 .8rem var(--mono);color:var(--muted)}
 .cbody .tag{font-size:10px;padding:5px 7px}
 .empty{color:var(--muted);margin:0}
-
-body{margin:0}
-img{max-width:100%}
-:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 </style>
-</head>
-<body>
 <main>
   <section id="list">
     <header class="top"><h1>Our Recipe Book</h1><p class="sub" id="count"></p></header>
@@ -112,6 +107,10 @@ img{max-width:100%}
     <a class="card" href="#sheet-pan-chicken" data-r="sheet-pan-chicken" data-s="tropical hawaiian chicken on a sheet pan chicken sheet pan one-pan meal chicken breasts, boneless and skinless pineapple chunks (fresh or canned) red bell pepper, sliced red onion, sliced olive oil soy sauce honey garlic powder ground ginger chili flakesoptional salt and pepper fresh cilantrooptional chicken breasts, boneless and skinless red bell pepper red onion pineapple chunks (fresh, or canned in the canned fruit aisle) fresh cilantrooptional olive oil soy sauce honey garlic powder ground ginger chili flakesoptional salt and pepper">
       <img src="sheetpan.jpg" alt="" loading="lazy">
       <div class="cbody"><h2>Tropical Hawaiian Chicken on a Sheet Pan</h2><p class="blurb">400°F · 25–30 min on one pan</p><div class="tags"><span class="tag">Chicken</span><span class="tag">Sheet pan</span></div></div>
+    </a>
+    <a class="card" href="#caramels" data-r="caramels" data-s="mrs. roberts caramels candy caramel microwave beth roberts butter, soft white sugar brown sugar karo syrup eagle condensed milk butter white sugar brown sugar karo syrup">
+      <img src="caramels.jpg" alt="" loading="lazy">
+      <div class="cbody"><h2>Mrs. Roberts Caramels</h2><p class="blurb">12 min in the microwave · 9×13 pan</p><div class="tags"><span class="tag">Candy</span><span class="tag">Caramel</span></div></div>
     </a>
     </div>
     <p class="empty" id="empty" hidden>No recipes match that search.</p>
@@ -487,6 +486,70 @@ img{max-width:100%}
 
   <p class="note">Saved from a screenshot in the Cooking Recipes project.</p>
   </article>
+  <article class="recipe" id="r-caramels" data-r="caramels" hidden>
+    <a class="back" href="#recipes">← All recipes</a>
+    <header>
+      <div class="tags"><span class="tag">Candy</span><span class="tag">Caramel</span><span class="tag">Microwave</span></div>
+      <h1>Mrs. Roberts Caramels</h1>
+      <p class="by">From Mrs. Beth Roberts</p>
+    </header>
+    <img class="photo" src="caramels.jpg" alt="Wrapped homemade caramels on a wooden board">
+    <div class="stats">
+    <div class="stat"><b>12 min</b><span>Microwave, high</span></div>
+    <div class="stat"><b>9×13 in</b><span>Pan</span></div>
+    <div class="stat"><b>1–2 min</b><span>Beat</span></div>
+  </div>
+    <section>
+    <h2>Ingredients <small>tap to check off</small></h2>
+    <div class="scalebar"><span class="lbl">Batch size</span>
+      <div class="scale" role="group" aria-label="Batch size">
+        <button type="button" data-k="1" aria-pressed="true">1x</button>
+        <button type="button" data-k="2" aria-pressed="false">2x</button>
+        <button type="button" data-k="3" aria-pressed="false">3x</button>
+      </div>
+    </div>
+    <ul class="ing">
+      <li><label for="caramels-i1"><input type="checkbox" id="caramels-i1"><span class="amt" data-q="1" data-u="cup">1 cup</span><span class="name">butter, soft</span></label></li>
+      <li><label for="caramels-i2"><input type="checkbox" id="caramels-i2"><span class="amt" data-q="1" data-u="cup">1 cup</span><span class="name">white sugar</span></label></li>
+      <li><label for="caramels-i3"><input type="checkbox" id="caramels-i3"><span class="amt" data-q="1" data-u="cup">1 cup</span><span class="name">brown sugar</span></label></li>
+      <li><label for="caramels-i4"><input type="checkbox" id="caramels-i4"><span class="amt" data-q="1" data-u="cup">1 cup</span><span class="name">Karo syrup</span></label></li>
+      <li><label for="caramels-i5"><input type="checkbox" id="caramels-i5"><span class="amt" data-q="1" data-u="can">1 can</span><span class="name">Eagle condensed milk</span></label></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Directions<small class="sc"></small></h2>
+    <ol class="steps">
+      <li><p>Combine the butter, white sugar, brown sugar, Karo syrup, and Eagle condensed milk.</p></li>
+      <li><p>Microwave on high, stopping to stir and rotate 3 times. <span class="t">12 min</span></p></li>
+      <li><p>Beat. <span class="t">1–2 min</span></p></li>
+      <li><p>Pour into a 9×13-inch pan.</p></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Grocery list <small>by aisle</small><small class="sc"></small></h2>
+    <div class="aisles">
+      <div class="aisle"><h3>Dairy and eggs</h3>
+        <ul class="ing">
+          <li><label for="caramels-g1"><input type="checkbox" id="caramels-g1"><span class="amt" data-q="1" data-u="cup">1 cup</span><span class="name">butter</span></label></li>
+          <li><label for="caramels-g2"><input type="checkbox" id="caramels-g2"><span class="amt" data-q="1" data-u="can">1 can</span><span class="name">Eagle condensed milk</span></label></li>
+        </ul>
+      </div>
+      <div class="aisle"><h3>Baking</h3>
+        <ul class="ing">
+          <li><label for="caramels-g3"><input type="checkbox" id="caramels-g3"><span class="amt" data-q="1" data-u="cup">1 cup</span><span class="name">white sugar</span></label></li>
+          <li><label for="caramels-g4"><input type="checkbox" id="caramels-g4"><span class="amt" data-q="1" data-u="cup">1 cup</span><span class="name">brown sugar</span></label></li>
+        </ul>
+      </div>
+      <div class="aisle"><h3>Pantry</h3>
+        <ul class="ing">
+          <li><label for="caramels-g5"><input type="checkbox" id="caramels-g5"><span class="amt" data-q="1" data-u="cup">1 cup</span><span class="name">Karo syrup</span></label></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  </article>
 </main>
 <script>
 (function(){
@@ -500,7 +563,7 @@ img{max-width:100%}
       if(t>=3&&Math.abs(t/1.5-Math.round(t/1.5))<1e-6)return [t/3,"tbsp"];
       return [t,"tsp"];}
     return [v,u];}
-  function label(u,v){if((u==="cup"||u==="packet"||u==="package")&&v>1.0001)return u+"s";return u;}
+  function label(u,v){if((u==="cup"||u==="packet"||u==="package"||u==="can")&&v>1.0001)return u+"s";return u;}
   function scaled(qs,u,k){var q=qs.split("-").map(Number),out,lab;
     if(q.length===2){out=num(q[0]*k)+"–"+num(q[1]*k);lab=label(u,q[1]*k);}
     else{var c=conv(q[0],u,k);out=num(c[0]);lab=label(c[1],c[0]);}
@@ -539,5 +602,5 @@ img{max-width:100%}
   q.addEventListener("input",filter);filter();
 })();
 </script>
-</body>
-</html>
+
+</body></html>
