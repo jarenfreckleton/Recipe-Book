@@ -78,6 +78,7 @@ ol.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;g
 .steps li::before{content:counter(s);font:700 1rem/2rem var(--display);width:2rem;height:2rem;text-align:center;border-radius:50%;background:var(--accent);color:var(--accent-ink)}
 .steps p{margin:0;padding-top:3px;min-width:0}
 .steps .t{font:500 .85rem var(--mono);color:var(--honey)}
+.steps .note{display:block;margin-top:10px;border-left:3px solid var(--honey);padding:2px 0 2px 14px;color:var(--muted);font-size:.95rem}
 .aisles{display:flex;flex-direction:column;gap:18px}
 .aisle h3{font:500 .78rem/1 var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
 .scalebar{display:flex;align-items:center;gap:12px;margin:0 0 12px;flex-wrap:wrap}
@@ -150,7 +151,7 @@ h2 .sc{font:500 .8rem var(--mono);color:var(--honey)}
     </a>
     <a class="card" href="#protein-balls" data-r="protein-balls" data-s="protein balls with oats oats protein snack rolling oats vanilla whey protein powder (about 2 scoops) cinnamon chia seeds natural, smooth peanut butter (or any nut butter) raw honey vanilla extract rolling oats vanilla whey protein powder vanilla extract cinnamon chia seeds natural, smooth peanut butter (or any nut butter) raw honey">
       <img src="protein-balls.jpg" alt="" loading="lazy">
-      <div class="cbody"><h2>Protein Balls With Oats</h2><p class="blurb">1 1/2 cups oats · 1/2 cup protein powder</p><div class="tags"><span class="tag">Oats</span><span class="tag">Protein</span></div></div>
+      <div class="cbody"><h2>Protein Balls With Oats</h2><p class="blurb">1 inch balls · chill 20–30 min</p><div class="tags"><span class="tag">Oats</span><span class="tag">Protein</span></div></div>
     </a>
     </div>
     <p class="empty" id="empty" hidden>No recipes match that search.</p>
@@ -887,9 +888,9 @@ h2 .sc{font:500 .8rem var(--mono);color:var(--honey)}
     </header>
     <img class="photo" src="protein-balls.jpg" alt="Oat protein balls with chocolate chips in a white bowl">
     <div class="stats">
+    <div class="stat"><b>1 inch</b><span>Ball size</span></div>
+    <div class="stat"><b>20–30 min</b><span>Chill</span></div>
     <div class="stat"><b data-q="1.5" data-u="cup">1 1/2 cups</b><span>Rolling oats</span></div>
-    <div class="stat"><b data-q="0.5" data-u="cup">1/2 cup</b><span>Protein powder</span></div>
-    <div class="stat"><b data-q="3" data-u="tbsp">3 tbsp</b><span>Raw honey</span></div>
   </div>
     <section>
     <h2>Ingredients <small>tap to check off</small></h2>
@@ -909,6 +910,16 @@ h2 .sc{font:500 .8rem var(--mono);color:var(--honey)}
       <li><label for="protein-balls-i6"><input type="checkbox" id="protein-balls-i6"><span class="amt" data-q="3" data-u="tbsp">3 tbsp</span><span class="name">raw honey</span></label></li>
       <li><label for="protein-balls-i7"><input type="checkbox" id="protein-balls-i7"><span class="amt" data-q="1" data-u="tsp">1 tsp</span><span class="name">vanilla extract</span></label></li>
     </ul>
+  </section>
+
+  <section>
+    <h2>Directions<small class="sc"></small></h2>
+    <ol class="steps">
+      <li><p>Mix the wet ingredients until smooth.</p></li>
+      <li><p>Combine the dry ingredients and mix well.<span class="note">If the mixture feels too dry and crumbly to stick, add <span data-q="1-2" data-u="tsp">1–2 tsp</span> of water or extra honey. If it's too wet, add a couple extra tablespoons of oats.</span></p></li>
+      <li><p>Gently stir in the mini chocolate chips.</p></li>
+      <li><p>Shape into 1 inch bite sized balls and place on a parchment lined baking sheet. Refrigerate so they firm up. <span class="t">20–30 min</span></p></li>
+    </ol>
   </section>
 
   <section>
