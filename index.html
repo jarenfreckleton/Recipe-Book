@@ -1,4 +1,3 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>Our Recipe Book</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap">
@@ -34,6 +33,14 @@
 [data-r="popcorn"]{--accent:#4a4fa6;--honey:#a45d0c;--accent-ink:#fff}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) [data-r="popcorn"]{--accent:#a9adf2;--honey:#f0b463;--accent-ink:#14141f}}
 :root[data-theme="dark"] [data-r="popcorn"]{--accent:#a9adf2;--honey:#f0b463;--accent-ink:#14141f}
+[data-r="souffle"]{--accent:#b4531a;--honey:#a0651f;--accent-ink:#fff;--ill-a:#f3d9b8;--ill-b:#e08a3c;--ill-c:#8a4b1f;--ill-d:#d9d2c8}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) [data-r="souffle"]{--accent:#f0914f;--honey:#e3b062;--accent-ink:#1c120b;--ill-a:#3a2616;--ill-b:#e08a3c;--ill-c:#b86a2c;--ill-d:#5b5148}}
+:root[data-theme="dark"] [data-r="souffle"]{--accent:#f0914f;--honey:#e3b062;--accent-ink:#1c120b;--ill-a:#3a2616;--ill-b:#e08a3c;--ill-c:#b86a2c;--ill-d:#5b5148}
+h3.grp{font:500 .78rem/1 var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin:18px 0 8px}
+h3.grp:first-of-type{margin-top:0}
+figure.fig{margin:0}
+figure.fig figcaption{font:500 .72rem/1 var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+.card svg.thumb{width:104px;height:100%;min-height:112px;display:block}
 [hidden]{display:none!important}
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.55;
@@ -126,6 +133,10 @@ h2 .sc{font:500 .8rem var(--mono);color:var(--honey)}
     <a class="card" href="#popcorn" data-r="popcorn" data-s="carmel popcorn popcorn microwave snack popcorn, strained so seeds fall to the bottom and can be discarded brown sugar butter marshmallows butter brown sugar marshmallows popcorn">
       <img src="popcorn.jpg" alt="" loading="lazy">
       <div class="cbody"><h2>Carmel Popcorn</h2><p class="blurb">Microwave caramel · 22 marshmallows</p><div class="tags"><span class="tag">Popcorn</span><span class="tag">Microwave</span></div></div>
+    </a>
+    <a class="card" href="#souffle" data-r="souffle" data-s="sweet potato souffle sweet potato baked side dish princella yams drain warm in micro mash sugar salt butter eggs evaporated milk vanilla brown sugar flour chopped pecans melted butter coconut princella yams sugar salt butter eggs evaporated milk vanilla brown sugar flour chopped pecans coconut">
+      <svg class="thumb" viewBox="0 0 600 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustration of sweet potato souffle"><rect width="600" height="300" fill="var(--ill-a)"/><rect x="110" y="86" width="380" height="140" rx="14" fill="var(--ill-d)"/><rect x="124" y="98" width="352" height="116" rx="8" fill="var(--ill-b)"/><g fill="var(--ill-c)"><ellipse cx="170" cy="126" rx="16" ry="9" transform="rotate(-20 170 126)"/><ellipse cx="236" cy="150" rx="16" ry="9" transform="rotate(15 236 150)"/><ellipse cx="300" cy="120" rx="16" ry="9" transform="rotate(-8 300 120)"/><ellipse cx="364" cy="156" rx="16" ry="9" transform="rotate(25 364 156)"/><ellipse cx="428" cy="126" rx="16" ry="9" transform="rotate(-18 428 126)"/><ellipse cx="200" cy="188" rx="16" ry="9" transform="rotate(10 200 188)"/><ellipse cx="270" cy="190" rx="16" ry="9" transform="rotate(-25 270 190)"/><ellipse cx="338" cy="194" rx="16" ry="9" transform="rotate(12 338 194)"/><ellipse cx="410" cy="190" rx="16" ry="9" transform="rotate(-10 410 190)"/></g><g fill="var(--ill-a)"><circle cx="140" cy="160" r="4"/><circle cx="206" cy="112" r="4"/><circle cx="268" cy="168" r="4"/><circle cx="330" cy="140" r="4"/><circle cx="394" cy="116" r="4"/><circle cx="452" cy="168" r="4"/><circle cx="168" cy="200" r="4"/><circle cx="300" cy="204" r="4"/><circle cx="380" cy="176" r="4"/></g></svg>
+      <div class="cbody"><h2>Sweet Potato Souffle</h2><p class="blurb">350°F · 50 min foil on, 20-ish min off · 8x8 pan</p><div class="tags"><span class="tag">Sweet potato</span><span class="tag">Side dish</span></div></div>
     </a>
     </div>
     <p class="empty" id="empty" hidden>No recipes match that search.</p>
@@ -700,6 +711,88 @@ h2 .sc{font:500 .8rem var(--mono);color:var(--honey)}
     </div>
   </section>
   </article>
+  <article class="recipe" id="r-souffle" data-r="souffle" hidden>
+    <a class="back" href="#recipes">← All recipes</a>
+    <header>
+      <div class="tags"><span class="tag">Sweet potato</span><span class="tag">Baked</span><span class="tag">Side dish</span></div>
+      <h1>Sweet Potato Souffle</h1>
+    </header>
+    <figure class="fig"><svg class="photo" viewBox="0 0 600 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Drawn illustration of a square baking dish of sweet potato souffle with a pecan and coconut topping"><rect width="600" height="300" fill="var(--ill-a)"/><rect x="110" y="86" width="380" height="140" rx="14" fill="var(--ill-d)"/><rect x="124" y="98" width="352" height="116" rx="8" fill="var(--ill-b)"/><g fill="var(--ill-c)"><ellipse cx="170" cy="126" rx="16" ry="9" transform="rotate(-20 170 126)"/><ellipse cx="236" cy="150" rx="16" ry="9" transform="rotate(15 236 150)"/><ellipse cx="300" cy="120" rx="16" ry="9" transform="rotate(-8 300 120)"/><ellipse cx="364" cy="156" rx="16" ry="9" transform="rotate(25 364 156)"/><ellipse cx="428" cy="126" rx="16" ry="9" transform="rotate(-18 428 126)"/><ellipse cx="200" cy="188" rx="16" ry="9" transform="rotate(10 200 188)"/><ellipse cx="270" cy="190" rx="16" ry="9" transform="rotate(-25 270 190)"/><ellipse cx="338" cy="194" rx="16" ry="9" transform="rotate(12 338 194)"/><ellipse cx="410" cy="190" rx="16" ry="9" transform="rotate(-10 410 190)"/></g><g fill="var(--ill-a)"><circle cx="140" cy="160" r="4"/><circle cx="206" cy="112" r="4"/><circle cx="268" cy="168" r="4"/><circle cx="330" cy="140" r="4"/><circle cx="394" cy="116" r="4"/><circle cx="452" cy="168" r="4"/><circle cx="168" cy="200" r="4"/><circle cx="300" cy="204" r="4"/><circle cx="380" cy="176" r="4"/></g></svg><figcaption>Illustration</figcaption></figure>
+    <div class="stats">
+    <div class="stat"><b>350°F</b><span>Oven</span></div>
+    <div class="stat"><b>8x8 pan</b><span>Greased</span></div>
+    <div class="stat"><b>50 + 20-ish</b><span>Min, foil on / off</span></div>
+  </div>
+    <section>
+    <h2>Ingredients <small>tap to check off</small></h2>
+    <div class="scalebar"><span class="lbl">Batch size</span>
+      <div class="scale" role="group" aria-label="Batch size">
+        <button type="button" data-k="1" aria-pressed="true">1x</button>
+        <button type="button" data-k="2" aria-pressed="false">2x</button>
+        <button type="button" data-k="3" aria-pressed="false">3x</button>
+      </div>
+    </div>
+    <h3 class="grp">Souffle</h3>
+    <ul class="ing">
+      <li><label for="souffle-i1"><input type="checkbox" id="souffle-i1"><span class="amt" data-q="1" data-u="can">1 can</span><span class="name">Princella yams, 29 oz (drain, warm in micro, &amp; mash)</span></label></li>
+      <li><label for="souffle-i2"><input type="checkbox" id="souffle-i2"><span class="amt" data-q="0.75" data-u="cup">3/4 cup</span><span class="name">sugar</span></label></li>
+      <li><label for="souffle-i3"><input type="checkbox" id="souffle-i3"><span class="amt" data-q="0.5" data-u="tsp">1/2 tsp</span><span class="name">salt</span></label></li>
+      <li><label for="souffle-i4"><input type="checkbox" id="souffle-i4"><span class="amt" data-q="0.25" data-u="cup">1/4 cup</span><span class="name">butter <span class="stk" data-q="0.5">(1/2 a stick)</span></span></label></li>
+      <li><label for="souffle-i5"><input type="checkbox" id="souffle-i5"><span class="amt" data-q="2" data-u="">2</span><span class="name">eggs</span></label></li>
+      <li><label for="souffle-i6"><input type="checkbox" id="souffle-i6"><span class="amt" data-q="0.5" data-u="cup">1/2 cup</span><span class="name">evaporated milk</span></label></li>
+      <li><label for="souffle-i7"><input type="checkbox" id="souffle-i7"><span class="amt" data-q="1" data-u="tsp">1 tsp</span><span class="name">vanilla</span></label></li>
+    </ul>
+    <h3 class="grp">Topping</h3>
+    <ul class="ing">
+      <li><label for="souffle-i8"><input type="checkbox" id="souffle-i8"><span class="amt" data-q="1" data-u="cup">1 cup</span><span class="name">brown sugar</span></label></li>
+      <li><label for="souffle-i9"><input type="checkbox" id="souffle-i9"><span class="amt" data-q="0.333333" data-u="cup">1/3 cup</span><span class="name">flour</span></label></li>
+      <li><label for="souffle-i10"><input type="checkbox" id="souffle-i10"><span class="amt" data-q="1" data-u="cup">1 cup</span><span class="name">chopped pecans</span></label></li>
+      <li><label for="souffle-i11"><input type="checkbox" id="souffle-i11"><span class="amt" data-q="0.5" data-u="cup">1/2 cup</span><span class="name">melted butter <span class="stk" data-q="1">(1 stick)</span></span></label></li>
+      <li><label for="souffle-i12"><input type="checkbox" id="souffle-i12"><span class="amt" data-q="0.333333" data-u="cup">1/3 cup</span><span class="name">coconut</span></label></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Directions<small class="sc"></small></h2>
+    <ol class="steps">
+      <li><p>Drain the yams, warm them in the microwave, and mash.</p></li>
+      <li><p>Add the sugar, salt, butter, eggs, evaporated milk, and vanilla. Mix until fluffy. Pour into a greased 8x8 pan. (This will have leftovers. Use the same amount above for a 9x13 pan, but then double the topping for a 9x13.)</p></li>
+      <li><p>Combine the topping ingredients and drip on top of the souffle.</p></li>
+      <li><p>Bake at 350°F with vented foil. <span class="t">50 min</span></p></li>
+      <li><p>Remove the foil. <span class="t">20-ish min</span></p></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Grocery list <small>by aisle</small><small class="sc"></small></h2>
+    <div class="aisles">
+      <div class="aisle"><h3>Dairy and eggs</h3>
+        <ul class="ing">
+          <li><label for="souffle-g1"><input type="checkbox" id="souffle-g1"><span class="amt" data-q="0.25" data-u="cup">1/4 cup</span><span class="name">butter (souffle)</span></label></li>
+          <li><label for="souffle-g2"><input type="checkbox" id="souffle-g2"><span class="amt" data-q="0.5" data-u="cup">1/2 cup</span><span class="name">butter (topping), melted</span></label></li>
+          <li><label for="souffle-g3"><input type="checkbox" id="souffle-g3"><span class="amt" data-q="2" data-u="">2</span><span class="name">eggs</span></label></li>
+        </ul>
+      </div>
+      <div class="aisle"><h3>Baking</h3>
+        <ul class="ing">
+          <li><label for="souffle-g4"><input type="checkbox" id="souffle-g4"><span class="amt" data-q="0.75" data-u="cup">3/4 cup</span><span class="name">sugar</span></label></li>
+          <li><label for="souffle-g5"><input type="checkbox" id="souffle-g5"><span class="amt" data-q="1" data-u="cup">1 cup</span><span class="name">brown sugar</span></label></li>
+          <li><label for="souffle-g6"><input type="checkbox" id="souffle-g6"><span class="amt" data-q="0.333333" data-u="cup">1/3 cup</span><span class="name">flour</span></label></li>
+          <li><label for="souffle-g7"><input type="checkbox" id="souffle-g7"><span class="amt" data-q="1" data-u="tsp">1 tsp</span><span class="name">vanilla</span></label></li>
+          <li><label for="souffle-g8"><input type="checkbox" id="souffle-g8"><span class="amt" data-q="1" data-u="cup">1 cup</span><span class="name">chopped pecans</span></label></li>
+          <li><label for="souffle-g9"><input type="checkbox" id="souffle-g9"><span class="amt" data-q="0.333333" data-u="cup">1/3 cup</span><span class="name">coconut</span></label></li>
+        </ul>
+      </div>
+      <div class="aisle"><h3>Pantry</h3>
+        <ul class="ing">
+          <li><label for="souffle-g10"><input type="checkbox" id="souffle-g10"><span class="amt" data-q="1" data-u="can">1 can</span><span class="name">Princella yams, 29 oz</span></label></li>
+          <li><label for="souffle-g11"><input type="checkbox" id="souffle-g11"><span class="amt" data-q="0.5" data-u="cup">1/2 cup</span><span class="name">evaporated milk</span></label></li>
+          <li><label for="souffle-g12"><input type="checkbox" id="souffle-g12"><span class="amt" data-q="0.5" data-u="tsp">1/2 tsp</span><span class="name">salt</span></label></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  </article>
   </main>
 <script>
 (function(){
@@ -713,7 +806,7 @@ h2 .sc{font:500 .8rem var(--mono);color:var(--honey)}
       if(t>=3&&Math.abs(t/1.5-Math.round(t/1.5))<1e-6)return [t/3,"tbsp"];
       return [t,"tsp"];}
     return [v,u];}
-  function label(u,v){if((u==="cup"||u==="packet"||u==="package"||u==="can")&&v>1.0001)return u+"s";return u;}
+  function label(u,v){if((u==="cup"||u==="packet"||u==="package"||u==="can"||u==="stick")&&v>1.0001)return u+"s";return u;}
   function scaled(qs,u,k){var q=qs.split("-").map(Number),out,lab;
     if(q.length===2){out=num(q[0]*k)+"–"+num(q[1]*k);lab=label(u,q[1]*k);}
     else{var c=conv(q[0],u,k);out=num(c[0]);lab=label(c[1],c[0]);}
@@ -727,7 +820,7 @@ h2 .sc{font:500 .8rem var(--mono);color:var(--honey)}
     var btns=[].slice.call(r.querySelectorAll(".scale button"));
     var marks=[].slice.call(r.querySelectorAll("h2 .sc"));
     function apply(k){
-      els.forEach(function(e){e.textContent=k===1?e.getAttribute("data-o"):scaled(e.getAttribute("data-q"),e.getAttribute("data-u")||"",k);});
+      els.forEach(function(e){if(k===1){e.textContent=e.getAttribute("data-o");}else if(e.classList.contains("stk")){e.textContent="("+scaled(e.getAttribute("data-q"),"stick",k)+")";}else{e.textContent=scaled(e.getAttribute("data-q"),e.getAttribute("data-u")||"",k);}});
       marks.forEach(function(m){m.textContent=k>1?"· "+k+"x":"";});}
     btns.forEach(function(b){b.addEventListener("click",function(){
       btns.forEach(function(x){x.setAttribute("aria-pressed",x===b?"true":"false");});
@@ -752,5 +845,3 @@ h2 .sc{font:500 .8rem var(--mono);color:var(--honey)}
   q.addEventListener("input",filter);filter();
 })();
 </script>
-
-</body></html>
