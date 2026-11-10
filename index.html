@@ -51,6 +51,9 @@
 [data-r="fried-bites"]{--accent:#0a7c96;--honey:#b3541e;--accent-ink:#fff;--ill-a:#d6ecf0;--ill-b:#ffffff;--ill-c:#c0502a;--ill-d:#6fa83a;--ill-e:#f2c04a}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) [data-r="fried-bites"]{--accent:#5fcfe8;--honey:#f0a35e;--accent-ink:#0f1a1d;--ill-a:#16313a;--ill-b:#2b4650;--ill-c:#e07a4c;--ill-d:#9ccc65;--ill-e:#e8b93c}}
 :root[data-theme="dark"] [data-r="fried-bites"]{--accent:#5fcfe8;--honey:#f0a35e;--accent-ink:#0f1a1d;--ill-a:#16313a;--ill-b:#2b4650;--ill-c:#e07a4c;--ill-d:#9ccc65;--ill-e:#e8b93c}
+[data-r="pumpkin-cookies"]{--accent:#55641b;--honey:#b8520a;--accent-ink:#fff}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) [data-r="pumpkin-cookies"]{--accent:#b6cd6a;--honey:#f2a25c;--accent-ink:#14160e}}
+:root[data-theme="dark"] [data-r="pumpkin-cookies"]{--accent:#b6cd6a;--honey:#f2a25c;--accent-ink:#14160e}
 .ill{display:block;width:100%;height:auto;aspect-ratio:4/3;border-radius:8px;border:1px solid var(--line);background:var(--ill-a)}
 h3.grp{font:500 .78rem/1 var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin:18px 0 8px}
 h3.grp:first-of-type{margin-top:0}
@@ -174,6 +177,10 @@ h2 .sc{font:500 .8rem var(--mono);color:var(--honey)}
     <a class="card" href="#fried-bites" data-r="fried-bites" data-s="sweet and spicy chicken bites chicken fried appetizer boneless chicken breast or thighs, cut into bite-sized pieces all-purpose flour salt black pepper garlic powder paprika cayenne pepper egg milk cornstarch vegetable oil for frying soy sauce honey sriracha sauce rice vinegar sesame oil cornstarch (to thicken) shredded mozzarella or cheddar cheese chopped green onions">
       <img src="friedbites.jpg" alt="" loading="lazy">
       <div class="cbody"><h2>Sweet and Spicy Chicken Bites</h2><p class="blurb">Fried · 4–5 min per batch · medium-high heat</p><div class="tags"><span class="tag">Chicken</span><span class="tag">Fried</span></div></div>
+    </a>
+    <a class="card" href="#pumpkin-cookies" data-r="pumpkin-cookies" data-s="not cakey pumpkin chocolate chip cookies cookies pumpkin chocolate chip butter, softened pumpkin, thoroughly dried brown sugar, packed egg yolk vanilla extract all purpose flour salt baking soda baking powder pumpkin pie spice chocolate chips butter egg yolk brown sugar vanilla extract all purpose flour baking soda baking powder chocolate chips pumpkin salt pumpkin pie spice">
+      <img src="pumpkin.jpg" alt="" loading="lazy">
+      <div class="cbody"><h2>Not Cakey Pumpkin Chocolate Chip Cookies</h2><p class="blurb">350°F · 7–10 min · makes 12 cookies</p><div class="tags"><span class="tag">Cookies</span><span class="tag">Pumpkin</span></div></div>
     </a>
     </div>
     <p class="empty" id="empty" hidden>No recipes match that search.</p>
@@ -1255,6 +1262,83 @@ h2 .sc{font:500 .8rem var(--mono);color:var(--honey)}
     </div>
   </section>
   </article>
+  <article class="recipe" id="r-pumpkin-cookies" data-r="pumpkin-cookies" hidden>
+    <a class="back" href="#recipes">← All recipes</a>
+    <header>
+      <div class="tags"><span class="tag">Cookies</span><span class="tag">Pumpkin</span><span class="tag">Chocolate chip</span></div>
+      <h1>Not Cakey Pumpkin Chocolate Chip Cookies</h1>
+    </header>
+    <img class="photo" src="pumpkin.jpg" alt="Pumpkin chocolate chip cookies on a baking sheet">
+  <div class="stats">
+    <div class="stat"><b>350°F</b><span>Oven</span></div>
+    <div class="stat"><b>7–10 min</b><span>Bake</span></div>
+    <div class="stat"><b data-q="12" data-u="cookies">12 cookies</b><span>Makes</span></div>
+  </div>
+  <section>
+    <h2>Ingredients <small>tap to check off</small></h2>
+    <div class="scalebar"><span class="lbl">Batch size</span>
+      <div class="scale" role="group" aria-label="Batch size">
+        <button type="button" data-k="1" aria-pressed="true">1x</button>
+        <button type="button" data-k="2" aria-pressed="false">2x</button>
+        <button type="button" data-k="3" aria-pressed="false">3x</button>
+      </div>
+    </div>
+    <ul class="ing">
+      <li><label for="pumpkin-cookies-i1"><input type="checkbox" id="pumpkin-cookies-i1"><span class="amt" data-q="0.5" data-u="cup">1/2 cup</span><span class="name">butter, softened</span></label></li>
+      <li><label for="pumpkin-cookies-i2"><input type="checkbox" id="pumpkin-cookies-i2"><span class="amt" data-q="0.3333333333" data-u="cup">1/3 cup</span><span class="name">pumpkin, thoroughly dried</span></label></li>
+      <li><label for="pumpkin-cookies-i3"><input type="checkbox" id="pumpkin-cookies-i3"><span class="amt" data-q="1" data-u="cup">1 cup</span><span class="name">brown sugar, packed</span></label></li>
+      <li><label for="pumpkin-cookies-i4"><input type="checkbox" id="pumpkin-cookies-i4"><span class="amt" data-q="1" data-u="">1</span><span class="name">egg <span data-s="yolk" data-p="yolks">yolk</span></span></label></li>
+      <li><label for="pumpkin-cookies-i5"><input type="checkbox" id="pumpkin-cookies-i5"><span class="amt" data-q="2" data-u="tsp">2 tsp</span><span class="name">vanilla extract</span></label></li>
+      <li><label for="pumpkin-cookies-i6"><input type="checkbox" id="pumpkin-cookies-i6"><span class="amt" data-q="1.5" data-u="cup">1 1/2 cups</span><span class="name">all purpose flour</span></label></li>
+      <li><label for="pumpkin-cookies-i7"><input type="checkbox" id="pumpkin-cookies-i7"><span class="amt" data-q="0.25" data-u="tsp">1/4 tsp</span><span class="name">salt</span></label></li>
+      <li><label for="pumpkin-cookies-i8"><input type="checkbox" id="pumpkin-cookies-i8"><span class="amt" data-q="0.5" data-u="tsp">1/2 tsp</span><span class="name">baking soda</span></label></li>
+      <li><label for="pumpkin-cookies-i9"><input type="checkbox" id="pumpkin-cookies-i9"><span class="amt" data-q="0.25" data-u="tsp">1/4 tsp</span><span class="name">baking powder</span></label></li>
+      <li><label for="pumpkin-cookies-i10"><input type="checkbox" id="pumpkin-cookies-i10"><span class="amt" data-q="2.5" data-u="tsp">2 1/2 tsp</span><span class="name">pumpkin pie spice</span></label></li>
+      <li><label for="pumpkin-cookies-i11"><input type="checkbox" id="pumpkin-cookies-i11"><span class="amt" data-q="0.6666666667" data-u="cup">2/3 cup</span><span class="name">chocolate chips</span></label></li>
+    </ul>
+  </section>
+  <section>
+    <h2>Directions<small class="sc"></small></h2>
+    <ol class="steps">
+      <li><p>Thoroughly dry pumpkin puree, squeezing the liquid out using a cheese cloth or clean kitchen towel. You can also blot well with a paper towel.</p></li>
+      <li><p>In a large bowl, cream together butter, brown sugar, pumpkin puree, vanilla, and the egg yolk.</p></li>
+      <li><p>Add flour, salt, baking soda, baking powder, and pumpkin pie spice. Mix well until fully incorporated.</p></li>
+      <li><p>Fold in chocolate chips.</p></li>
+      <li><p>Preheat oven to 350°F and refrigerate the dough (not required but helps). <span class="t">30 min</span></p></li>
+      <li><p>After refrigerating, scoop dough into 1 inch balls and place onto parchment lined or lightly greased baking sheet 2 inches apart.</p></li>
+      <li><p>Bake until the edges look done yet middle still looks underbaked. <span class="t">7–10 min</span></p></li>
+      <li><p>Cool before eating! <span class="t">5–10 min</span></p></li>
+    </ol>
+  </section>
+  <section>
+    <h2>Grocery list <small>by aisle</small><small class="sc"></small></h2>
+    <div class="aisles">
+      <div class="aisle"><h3>Dairy and eggs</h3>
+        <ul class="ing">
+          <li><label for="pumpkin-cookies-g1"><input type="checkbox" id="pumpkin-cookies-g1"><span class="amt" data-q="0.5" data-u="cup">1/2 cup</span><span class="name">butter</span></label></li>
+          <li><label for="pumpkin-cookies-g2"><input type="checkbox" id="pumpkin-cookies-g2"><span class="amt" data-q="1" data-u="">1</span><span class="name">egg <span data-s="yolk" data-p="yolks">yolk</span></span></label></li>
+        </ul>
+      </div>
+      <div class="aisle"><h3>Baking</h3>
+        <ul class="ing">
+          <li><label for="pumpkin-cookies-g3"><input type="checkbox" id="pumpkin-cookies-g3"><span class="amt" data-q="1" data-u="cup">1 cup</span><span class="name">brown sugar</span></label></li>
+          <li><label for="pumpkin-cookies-g4"><input type="checkbox" id="pumpkin-cookies-g4"><span class="amt" data-q="2" data-u="tsp">2 tsp</span><span class="name">vanilla extract</span></label></li>
+          <li><label for="pumpkin-cookies-g5"><input type="checkbox" id="pumpkin-cookies-g5"><span class="amt" data-q="1.5" data-u="cup">1 1/2 cups</span><span class="name">all purpose flour</span></label></li>
+          <li><label for="pumpkin-cookies-g6"><input type="checkbox" id="pumpkin-cookies-g6"><span class="amt" data-q="0.5" data-u="tsp">1/2 tsp</span><span class="name">baking soda</span></label></li>
+          <li><label for="pumpkin-cookies-g7"><input type="checkbox" id="pumpkin-cookies-g7"><span class="amt" data-q="0.25" data-u="tsp">1/4 tsp</span><span class="name">baking powder</span></label></li>
+          <li><label for="pumpkin-cookies-g8"><input type="checkbox" id="pumpkin-cookies-g8"><span class="amt" data-q="0.6666666667" data-u="cup">2/3 cup</span><span class="name">chocolate chips</span></label></li>
+        </ul>
+      </div>
+      <div class="aisle"><h3>Pantry</h3>
+        <ul class="ing">
+          <li><label for="pumpkin-cookies-g9"><input type="checkbox" id="pumpkin-cookies-g9"><span class="amt" data-q="0.3333333333" data-u="cup">1/3 cup</span><span class="name">pumpkin</span></label></li>
+          <li><label for="pumpkin-cookies-g10"><input type="checkbox" id="pumpkin-cookies-g10"><span class="amt" data-q="0.25" data-u="tsp">1/4 tsp</span><span class="name">salt</span></label></li>
+          <li><label for="pumpkin-cookies-g11"><input type="checkbox" id="pumpkin-cookies-g11"><span class="amt" data-q="2.5" data-u="tsp">2 1/2 tsp</span><span class="name">pumpkin pie spice</span></label></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  </article>
   </main>
 <script>
 (function(){
@@ -1282,8 +1366,10 @@ h2 .sc{font:500 .8rem var(--mono);color:var(--honey)}
     els.forEach(function(e){e.setAttribute("data-o",e.textContent);});
     var btns=[].slice.call(r.querySelectorAll(".scale button"));
     var marks=[].slice.call(r.querySelectorAll("h2 .sc"));
+    var pl=[].slice.call(r.querySelectorAll("[data-s]"));
     function apply(k){
       els.forEach(function(e){if(k===1){e.textContent=e.getAttribute("data-o");}else if(e.classList.contains("stk")){e.textContent="("+scaled(e.getAttribute("data-q"),"stick",k)+")";}else{e.textContent=scaled(e.getAttribute("data-q"),e.getAttribute("data-u")||"",k);}});
+      pl.forEach(function(e){e.textContent=k>1?e.getAttribute("data-p"):e.getAttribute("data-s");});
       marks.forEach(function(m){m.textContent=k>1?"· "+k+"x":"";});}
     btns.forEach(function(b){b.addEventListener("click",function(){
       btns.forEach(function(x){x.setAttribute("aria-pressed",x===b?"true":"false");});
